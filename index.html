@@ -129,6 +129,27 @@ section[data-tab="investimento"] .eyebrow{color:var(--t-green)}
 .rs p{color:var(--ink);font-size:15px}
 .pdfimg{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
 .pdfimg img{display:block;width:100%;height:auto}
+section[data-tab="referencias"] .eyebrow{color:var(--t-yellow);color:#B07800}
+.igs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.ig{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.ig-top{display:flex;gap:12px;align-items:center}
+.ig-av{flex:0 0 56px;height:56px;border-radius:50%;padding:3px;background:conic-gradient(var(--t-red),var(--t-yellow),var(--t-green),var(--t-blue),var(--t-red))}
+.ig-av span{width:100%;height:100%;border-radius:50%;background:var(--surface);border:2px solid var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px}
+.ig-red .ig-av span{color:var(--t-red)}.ig-blue .ig-av span{color:var(--t-blue)}.ig-green .ig-av span{color:var(--t-green)}.ig-yellow .ig-av span{color:#B07800}
+.ig-id{min-width:0;display:flex;flex-direction:column}
+.ig-id b{font-size:15.5px;overflow-wrap:anywhere}.ig-id span{color:var(--muted);font-size:14px}
+.ig-stats{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ig-stats b{color:var(--ink)}
+.ig-cat{font-weight:700;font-size:12px;border-radius:999px;padding:3px 10px;background:var(--soft);color:var(--ink)}
+.ig-bio{font-size:14.5px;color:var(--muted)}
+.ig-hl{display:flex;flex-wrap:wrap;gap:6px}
+.ig-hl span{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.ig-how,.ig-take{display:flex;flex-direction:column;gap:2px;font-size:14.5px}
+.ig-how b,.ig-take b{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ig-take{background:var(--soft);border-radius:12px;padding:10px 12px}
+.ig-red .ig-take{border-left:0;box-shadow:inset 0 3px 0 var(--t-red)}.ig-blue .ig-take{box-shadow:inset 0 3px 0 var(--t-blue)}.ig-green .ig-take{box-shadow:inset 0 3px 0 var(--t-green)}.ig-yellow .ig-take{box-shadow:inset 0 3px 0 var(--t-yellow)}
+.ig-link{margin-top:auto;font-weight:700;color:var(--ink);text-decoration:none;font-size:14.5px}
+.ig-link:hover{text-decoration:underline}
 /* pdf */
 .pdfs{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
 .page{width:min(100%,340px);aspect-ratio:210/297;max-width:100%;background:#FFFFFF;color:#1F2A44;border-radius:6px;box-shadow:0 20px 40px -22px rgba(20,26,40,.5);padding:18px;display:flex;flex-direction:column;gap:10px;font-size:11px;line-height:1.4;overflow:hidden}
@@ -196,6 +217,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <a href="#bonus" data-t="bonus">Bônus em PDF</a>
 <a href="#criativos" data-t="criativos">Criativos</a>
 <a href="#cronograma" data-t="cronograma">Cronograma</a>
+<a href="#referencias" data-t="referencias">Referências</a>
 <a href="#investimento" data-t="investimento">Investimento</a>
 </nav></div>
 
@@ -237,6 +259,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <a href="#bonus"><b>Bônus em PDF</b><span>O guia de exercícios para as famílias</span></a>
 <a href="#criativos"><b>Criativos</b><span>Ideias de Reels para o Instagram</span></a>
 <a href="#cronograma"><b>Cronograma</b><span>Como será o dia de gravação</span></a>
+<a href="#referencias"><b>Referências</b><span>Perfis do Instagram para se inspirar</span></a>
 <a href="#investimento"><b>Investimento</b><span>Em quantas vendas o curso se paga</span></a>
 </div>
 </div>
@@ -426,6 +449,89 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </section>
 
 
+<section class="band" data-tab="referencias">
+<div class="wrap">
+<p class="eyebrow">Referências no Instagram</p>
+<h2>Quem já fala com o mesmo público</h2>
+<p class="lead">Perfis reais de fisioterapia pediátrica e TEA, com o que cada um faz bem e o que a Gabi pode aproveitar. Números de seguidores consultados em novembro de 2026.</p>
+<div class="igs">
+<article class="ig ig-red">
+<div class="ig-top"><div class="ig-av" aria-hidden="true"><span>AN</span></div><div class="ig-id"><b>@autismonapontadope</b><span>Autismo na Ponta do Pé</span></div></div>
+<div class="ig-stats"><span><b>2.812</b> seguidores</span><span class="ig-cat">Projeto social</span></div>
+<p class="ig-bio">Projeto que leva tratamento a crianças de baixa renda com TEA.</p>
+<div class="ig-hl" aria-label="Destaques do perfil"><span>Dicas</span><span>Terapias</span><span>Em casa</span><span>Famílias</span><span>Voluntários</span></div>
+<div class="ig-how"><b>Como atua</b><p>Concorrente mais direto no tema. Fala com famílias, com destaques de dicas e exercícios em casa.</p></div>
+<div class="ig-take"><b>Para a Gabi</b><p>A Gabi pode ocupar o espaço profissional e técnico que esse perfil não cobre: avaliação e intervenção para fisios.</p></div>
+<a class="ig-link" href="https://www.instagram.com/autismonapontadope/">Ver perfil no Instagram →</a>
+</article>
+<article class="ig ig-blue">
+<div class="ig-top"><div class="ig-av" aria-hidden="true"><span>SF</span></div><div class="ig-id"><b>@spectrum.fisiotea</b><span>SPECTRUM Fisioterapia em TEA</span></div></div>
+<div class="ig-stats"><span><b>6.907</b> seguidores</span><span class="ig-cat">Cursos para fisios</span></div>
+<p class="ig-bio">Equipe de três fisioterapeutas especializadas em TEA.</p>
+<div class="ig-hl" aria-label="Destaques do perfil"><span>Curso Avaliações</span><span>Curso Imersão</span><span>Workshop</span><span>Curso Grafomotor</span></div>
+<div class="ig-how"><b>Como atua</b><p>Usa o Instagram como vitrine de cursos: cada curso ganha um destaque próprio, com turmas por ano.</p></div>
+<div class="ig-take"><b>Para a Gabi</b><p>Modelo para a Gabi: um destaque “Curso Ponta dos Pés” com depoimentos de alunos e datas de turma.</p></div>
+<a class="ig-link" href="https://www.instagram.com/spectrum.fisiotea/">Ver perfil no Instagram →</a>
+</article>
+<article class="ig ig-yellow">
+<div class="ig-top"><div class="ig-av" aria-hidden="true"><span>PF</span></div><div class="ig-id"><b>@dra.priscilafreitas</b><span>Pri Freitas</span></div></div>
+<div class="ig-stats"><span><b>29,1 mil</b> seguidores</span><span class="ig-cat">Marca pessoal</span></div>
+<p class="ig-bio">Fisioterapia pediátrica especializada e com afeto. 23 anos cuidando do desenvolvimento infantil.</p>
+<div class="ig-hl" aria-label="Destaques do perfil"><span>Curso</span><span>Resultados bebês</span><span>Livro 0 a 2 anos</span><span>Playlist</span></div>
+<div class="ig-how"><b>Como atua</b><p>A profissional é a marca: bio com tempo de experiência e valores (“ciência, vínculo e respeito”), e produtos próprios (curso e livro).</p></div>
+<div class="ig-take"><b>Para a Gabi</b><p>Inspiração para a bio da Gabi: experiência + jeito de atender + o curso no link.</p></div>
+<a class="ig-link" href="https://www.instagram.com/dra.priscilafreitas/">Ver perfil no Instagram →</a>
+</article>
+<article class="ig ig-green">
+<div class="ig-top"><div class="ig-av" aria-hidden="true"><span>F</span></div><div class="ig-id"><b>@fisiokids_sp</b><span>Fisiokids</span></div></div>
+<div class="ig-stats"><span><b>14,2 mil</b> seguidores</span><span class="ig-cat">Clínica + cursos</span></div>
+<p class="ig-bio">Fisioterapia pediátrica em São Paulo, com atuação em hospital infantil.</p>
+<div class="ig-hl" aria-label="Destaques do perfil"><span>Cursos</span><span>Dúvidas</span><span>Feedbacks</span><span>Quem somos</span><span>Livros</span></div>
+<div class="ig-how"><b>Como atua</b><p>Mistura atendimento, credibilidade (hospital, congresso) e venda de cursos. Tem destaque só para dúvidas dos seguidores.</p></div>
+<div class="ig-take"><b>Para a Gabi</b><p>Ideia direta: destaque “Dúvidas” com as respostas em vídeo, que já está no roteiro dos criativos.</p></div>
+<a class="ig-link" href="https://www.instagram.com/fisiokids_sp/">Ver perfil no Instagram →</a>
+</article>
+<article class="ig ig-red">
+<div class="ig-top"><div class="ig-av" aria-hidden="true"><span>F</span></div><div class="ig-id"><b>@fisiohabilitar</b><span>Fisiohabilitar</span></div></div>
+<div class="ig-stats"><span><b>2.235</b> seguidores</span><span class="ig-cat">Atendimento + formações</span></div>
+<p class="ig-bio">Fisioterapia para bebês e crianças, 21 anos de experiência, em casa e em consultório.</p>
+<div class="ig-hl" aria-label="Destaques do perfil"><span>Quem sou eu</span><span>Cursos</span><span>Formações</span><span>Feedback</span><span>Pacientinhos</span></div>
+<div class="ig-how"><b>Como atua</b><p>Bio objetiva com emojis organizando as informações. Destaque “Quem sou eu” apresenta a profissional.</p></div>
+<div class="ig-take"><b>Para a Gabi</b><p>A Gabi pode criar um destaque “Quem sou eu” antes do lançamento, para gerar confiança.</p></div>
+<a class="ig-link" href="https://www.instagram.com/fisiohabilitar/">Ver perfil no Instagram →</a>
+</article>
+<article class="ig ig-blue">
+<div class="ig-top"><div class="ig-av" aria-hidden="true"><span>IS</span></div><div class="ig-id"><b>@inspire.saudeinfantil</b><span>Inspire Saúde Infantil</span></div></div>
+<div class="ig-stats"><span><b>9.360</b> seguidores</span><span class="ig-cat">Clínica multidisciplinar</span></div>
+<p class="ig-bio">Pediatria, fisioterapia pediátrica, psicologia, fono e TO.</p>
+<div class="ig-hl" aria-label="Destaques do perfil"><span>Dicas</span><span>Agendamento</span><span>Comentários</span><span>Quem somos</span></div>
+<div class="ig-how"><b>Como atua</b><p>Perfil de clínica, focado em agendar consultas e dar dicas para os pais.</p></div>
+<div class="ig-take"><b>Para a Gabi</b><p>Mostra como falar com os pais de forma simples, que é um dos quatro públicos do curso.</p></div>
+<a class="ig-link" href="https://www.instagram.com/inspire.saudeinfantil/">Ver perfil no Instagram →</a>
+</article>
+<article class="ig ig-yellow">
+<div class="ig-top"><div class="ig-av" aria-hidden="true"><span>FP</span></div><div class="ig-id"><b>@fisiopedunicamp</b><span>Fisioterapia Pediátrica · HC Unicamp</span></div></div>
+<div class="ig-stats"><span><b>2.556</b> seguidores</span><span class="ig-cat">Acadêmico</span></div>
+<p class="ig-bio">Pós-graduação em fisioterapia pediátrica do HC/Unicamp.</p>
+<div class="ig-hl" aria-label="Destaques do perfil"><span>Destaques</span><span>Informações</span></div>
+<div class="ig-how"><b>Como atua</b><p>Perfil institucional, com editais e informações do curso de pós.</p></div>
+<div class="ig-take"><b>Para a Gabi</b><p>Referência de linguagem técnica para os posts voltados a fisioterapeutas.</p></div>
+<a class="ig-link" href="https://www.instagram.com/fisiopedunicamp/">Ver perfil no Instagram →</a>
+</article>
+<article class="ig ig-green">
+<div class="ig-top"><div class="ig-av" aria-hidden="true"><span>CT</span></div><div class="ig-id"><b>@cursosteaonline</b><span>Cursos TEA Online</span></div></div>
+<div class="ig-stats"><span><b>1.950</b> seguidores</span><span class="ig-cat">Cursos (Argentina)</span></div>
+<p class="ig-bio">Cursos 100% a distância sobre autismo e neurodesenvolvimento, em espanhol.</p>
+<div class="ig-hl" aria-label="Destaques do perfil"><span>Cursos 2025</span><span>TEACCH</span><span>Sorteio</span></div>
+<div class="ig-how"><b>Como atua</b><p>Organiza os destaques por ano de curso e usa sorteios para atrair seguidores.</p></div>
+<div class="ig-take"><b>Para a Gabi</b><p>Ideia de lançamento: um sorteio de vaga no curso para engajar antes da abertura.</p></div>
+<a class="ig-link" href="https://www.instagram.com/cursosteaonline/">Ver perfil no Instagram →</a>
+</article>
+</div>
+<div class="panel"><h3>O que observar ao visitar cada perfil</h3><ul><li>Os 3 primeiros segundos dos Reels: como prendem a atenção.</li><li>Capas e destaques: como organizam os temas.</li><li>Bio e link: como chamam para o produto.</li><li>Comentários: as dúvidas dos pais viram novos roteiros.</li></ul></div>
+</div>
+</section>
+
 <section class="band" data-tab="investimento">
 <div class="wrap">
 <p class="eyebrow">Investimento e retorno</p>
@@ -451,8 +557,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <script>
 (function(){
-  var order=["proposta","cenarios","vendas","bonus","criativos","cronograma","investimento"];
-  var names={cenarios:"Cenários",vendas:"Página de vendas",bonus:"Bônus em PDF",criativos:"Criativos",cronograma:"Cronograma",investimento:"Investimento"};
+  var order=["proposta","cenarios","vendas","bonus","criativos","cronograma","referencias","investimento"];
+  var names={cenarios:"Cenários",vendas:"Página de vendas",bonus:"Bônus em PDF",criativos:"Criativos",cronograma:"Cronograma",referencias:"Referências",investimento:"Investimento"};
   document.querySelectorAll("section[data-tab]").forEach(function(sec){
     var t=sec.getAttribute("data-tab"),i=order.indexOf(t),n=order[i+1];
     var last=document.querySelectorAll('section[data-tab="'+t+'"]');
