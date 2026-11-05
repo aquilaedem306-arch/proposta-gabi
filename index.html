@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Proposta Curso Ponta dos Pés</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Fira+Sans:wght@400;500;700&family=Dancing+Script:wght@600;700&family=Cinzel:wght@600;700&display=swap">
+<style>
+/* Layout: proposta em capítulos verticais; cada bloco mostra uma peça do projeto como "amostra" emoldurada */
+:root{
+  --bg:#FFFFFF; --surface:#FFFFFF; --soft:#F7F8FA; --ink:#1B2A4A; --muted:#566079; --line:#E2E8F2;
+  --accent:#1B2A4A; --accent-ink:#FFFFFF; --teal:#1F8A5B; --navy:#FFFFFF; --navy-ink:#1B2A4A;
+  --t-red:#E5484D; --t-yellow:#F2B21F; --t-green:#2FA36B; --t-blue:#2E6FD8;
+  --skin:#F2C29B; --display:"Playfair Display",Georgia,serif; --body:"Fira Sans",system-ui,sans-serif; --script:"Dancing Script","Brush Script MT",cursive; --deco:"Cinzel","Trajan Pro",Georgia,serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11182A; --surface:#182238; --soft:#1D2942; --ink:#EEF2F9; --muted:#A9B4C9; --line:#2D3A55;
+  --accent:#EEF2F9; --accent-ink:#11182A; --teal:#4CC28A; --navy:#11182A; --navy-ink:#EEF2F9; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11182A; --surface:#182238; --soft:#1D2942; --ink:#EEF2F9; --muted:#A9B4C9; --line:#2D3A55;
+  --accent:#EEF2F9; --accent-ink:#11182A; --teal:#4CC28A; --navy:#11182A; --navy-ink:#EEF2F9; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:64px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,6vw,60px)}
+h2{font-size:clamp(28px,4vw,40px)}
+h3{font-size:20px}
+p{margin:0}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.lead{font-size:19px;color:var(--muted);max-width:62ch}
+.alt{background:var(--soft)}
+.hero{background:var(--navy);color:var(--navy-ink)}
+.hero .lead{color:var(--muted)}
+.hero .eyebrow{color:var(--accent)}
+.stripe{display:flex;height:8px;border-radius:999px;overflow:hidden;max-width:220px}.stripe i{flex:1}
+.stripe i:nth-child(1){background:var(--t-red)}.stripe i:nth-child(2){background:var(--t-yellow)}.stripe i:nth-child(3){background:var(--t-green)}.stripe i:nth-child(4){background:var(--t-blue)}
+.tabs{box-shadow:0 1px 0 var(--line)}
+.tabs::after{content:"";display:block;height:4px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));background:linear-gradient(90deg,var(--t-red) 0 25%,var(--t-yellow) 25% 50%,var(--t-green) 50% 75%,var(--t-blue) 75% 100%)}
+.facts .fact:nth-child(1) b{color:var(--t-red)}.facts .fact:nth-child(2) b{color:#C98A00}.facts .fact:nth-child(3) b{color:var(--t-green)}.facts .fact:nth-child(4) b{color:var(--t-blue)}
+.ribbon{width:110px;height:auto;flex:0 0 auto}
+.hero-top{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.fact{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:16px 18px}
+.fact b{display:block;font-family:var(--display);font-size:28px;font-weight:600;color:var(--accent)}
+.fact span{font-size:15px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px}
+.hero .chip{background:var(--soft);border-color:var(--line);color:var(--ink)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel ul{margin:0;padding-left:18px;color:var(--muted)}
+.scene{border-radius:12px;overflow:hidden;background:var(--soft)}
+.scene svg{display:block;width:100%;height:auto}
+/* browser frame */
+.browser{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface);box-shadow:0 18px 40px -24px rgba(30,60,120,.35)}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--soft);border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+.url{flex:1;min-width:0;background:var(--surface);border-radius:8px;padding:4px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lp-hero{background:#FFFFFF;color:#1B2A4A;padding:36px 28px;border-bottom:6px solid transparent;border-image:linear-gradient(90deg,#E5484D 0 25%,#F2B21F 25% 50%,#2FA36B 50% 75%,#2E6FD8 75%) 1;display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.lp-hero>div{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.lp-hero h3{font-size:clamp(24px,3.4vw,34px);color:#1B2A4A}
+.lp-ph{flex:1 1 220px;min-height:170px;border:2px dashed #D6DEEC;background:#F7F9FC;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#566079;font-size:14px;text-align:center;padding:12px}
+.btn{display:inline-block;align-self:flex-start;background:#F2B21F;color:#1B2A4A;font-weight:700;padding:10px 22px;border-radius:999px;text-decoration:none;font-size:15px}
+.lp-body{padding:24px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;background:#FFFFFF;color:#1F2A44}
+.lp-card{background:#fff;border:1px solid #E2E8F2;border-radius:12px;padding:14px;font-size:14px}
+.lp-card b{display:block;margin-bottom:4px}
+.lp-price{background:#FAF7EF;color:#1F2A44;padding:28px;text-align:center;display:flex;flex-direction:column;gap:6px;align-items:center}
+.lp-price strong{font-family:var(--display);font-size:40px;color:#1B2A4A}
+.lp-k{font-weight:700;letter-spacing:.08em;font-size:11.5px;color:#1F8A5B}
+.lp-sec{padding:26px 28px;color:#1F2A44;display:flex;flex-direction:column;gap:10px}
+.lp-sec h4{font-family:var(--display);font-weight:600;font-size:21px;margin:0;line-height:1.2}
+.lp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.lp-card b{display:block}
+.lp-mods{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.lp-mods>div{background:#fff;border-radius:12px;padding:14px;font-size:14px;color:#5A6378;display:flex;flex-direction:column;gap:2px}
+.lp-mods span{font-weight:700;color:#fff;background:#2FA36B;border-radius:999px;padding:2px 10px;align-self:flex-start;font-size:12px}
+.lp-mods b{color:#1F2A44}
+.lp-row{flex-direction:row;flex-wrap:wrap;align-items:center;gap:20px}
+.lp-ph2{flex:0 1 150px;min-height:150px;border-color:#CDBFAE;color:#7A6A5A;background:#EFE6DA}
+.lp-list{width:100%;max-width:420px;display:flex;flex-direction:column;gap:6px;text-align:left;font-size:14px}
+.lp-list div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed #D6DEEC;padding-bottom:6px}
+.lp-list div span:last-child{color:#1F8A5B;font-weight:700}
+.lp-guar{background:#fff;border-radius:12px;padding:10px 14px;font-size:13.5px;color:#5A6378;max-width:420px}
+.lp-guar b{display:block;color:#1F2A44}
+.lp-faq{display:flex;flex-direction:column;gap:8px}
+.lp-faq details{background:#FFFFFF;border:1px solid #E2E8F2;border-radius:10px;font-size:14px}
+.lp-faq summary{cursor:pointer;padding:10px 14px;font-weight:700}
+.lp-faq p{padding:0 14px 10px;color:#5A6378}
+.lp-foot{background:#1B2A4A;color:#E2ECFC;font-size:12px;text-align:center;padding:14px}
+.calc{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
+.calc .panel{flex:1 1 180px;gap:4px}
+.calc small{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:var(--muted)}
+.calc b{font-family:var(--display);font-size:34px;font-weight:600;font-variant-numeric:tabular-nums}
+.calc span{font-size:13.5px;color:var(--muted)}
+.calc .hl{border-color:var(--accent)}.calc .hl b{color:var(--accent);font-size:44px}
+.op{display:flex;align-items:center;font-family:var(--display);font-size:30px;color:var(--muted)}
+.dots10{display:flex;flex-wrap:wrap;gap:8px}
+.dots10 i{font-style:normal;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;border:2px dashed var(--line);color:var(--muted)}
+.dots10 i.on{background:var(--accent);border:2px solid var(--accent);color:var(--accent-ink)}
+.scs{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.sc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:12px 18px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.sc.head{border-top:0;background:var(--soft);font-size:13px;font-weight:700;color:var(--muted)}
+.sc em{font-style:normal;font-weight:700}.sc em.pos{color:var(--teal)}
+section[data-tab="cenarios"] .eyebrow{color:var(--t-red)}
+section[data-tab="vendas"] .eyebrow{color:#B07800}
+section[data-tab="bonus"] .eyebrow{color:var(--t-green)}
+section[data-tab="criativos"] .eyebrow{color:var(--t-blue)}
+section[data-tab="cronograma"] .eyebrow{color:var(--t-red)}
+section[data-tab="investimento"] .eyebrow{color:var(--t-green)}
+.step:nth-child(1)::before{background:var(--t-red);color:#fff}.step:nth-child(2)::before{background:var(--t-yellow);color:#1B2A4A}.step:nth-child(3)::before{background:var(--t-green);color:#fff}.step:nth-child(4)::before{background:var(--t-blue);color:#fff}
+.why .panel:nth-child(1){border-top:4px solid var(--t-red)}.why .panel:nth-child(2){border-top:4px solid var(--t-yellow)}.why .panel:nth-child(3){border-top:4px solid var(--t-green)}.why .panel:nth-child(4){border-top:4px solid var(--t-blue)}
+.calc .hl{border-color:var(--t-yellow)}.calc .hl b{color:var(--ink)}
+.dots10 i.on{background:var(--t-green);border-color:var(--t-green);color:#fff}
+.hero .eyebrow{font-family:var(--script);font-size:28px;font-weight:700;letter-spacing:0;text-transform:none}
+.fact b,.calc b,.lp-price strong,.page .cov b{font-family:var(--deco)}
+.step::before,.dots10 i{font-family:var(--deco)}
+.go a b,.reel .hook{font-family:var(--display)}
+.ex b{font-family:var(--display)}
+.reels{align-items:start}
+.reel summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:8px}
+.reel summary::-webkit-details-marker{display:none}
+.reel summary:focus-visible{outline:2px solid var(--ink);outline-offset:6px;border-radius:8px}
+.reel .open{font-size:14px;font-weight:700;color:var(--ink);margin-top:4px}
+.reel .open::after{content:" +"}
+.reel[open] .open::after{content:" −"}
+.reel[open]{border-color:var(--ink)}
+.reel .script{display:flex;flex-direction:column;gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.rs b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--t-blue)}
+.rs p{color:var(--ink);font-size:15px}
+/* pdf */
+.pdfs{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
+.page{width:min(100%,340px);aspect-ratio:210/297;max-width:100%;background:#FFFFFF;color:#1F2A44;border-radius:6px;box-shadow:0 20px 40px -22px rgba(20,26,40,.5);padding:18px;display:flex;flex-direction:column;gap:10px;font-size:11px;line-height:1.4;overflow:hidden}
+.page .cov{background:#FFFFFF;color:#1B2A4A;border:1px solid #E2E8F2;border-top:6px solid #E5484D;border-radius:8px;padding:12px}
+.page .cov small{color:#E5484D;font-weight:700;letter-spacing:.06em;font-size:8px}
+.page .cov b{display:block;font-family:var(--display);font-size:16px;line-height:1.2;margin-top:4px}
+.page .warn{background:#FAF7EF;border-radius:6px;padding:7px 9px;font-size:9.5px}
+.ex{display:flex;gap:10px;align-items:center;border:1px solid #E2E8F2;border-radius:8px;padding:8px}
+.ex svg{flex:0 0 42%;background:#F3F7FD;border-radius:6px}
+.ex b{font-family:var(--display);font-size:12.5px;display:block}
+.ex small{color:#1F8A5B;font-weight:700;font-size:8.5px}
+/* creatives */
+.reels{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.reel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.reel .hook{font-family:var(--display);font-size:18px;line-height:1.25}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--soft);color:var(--muted)}
+.tag.pais{color:var(--accent)}
+.tag.fisio{color:var(--teal)}
+.reel p{color:var(--muted);font-size:15px}
+/* timeline */
+.tl{display:flex;flex-direction:column;border-left:3px solid var(--line);margin-left:6px}
+.slot{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:10px 0 10px 18px;position:relative;align-items:baseline}
+.slot::before{content:"";position:absolute;left:-8px;top:17px;width:13px;height:13px;border-radius:50%;background:var(--surface);border:3px solid var(--line)}
+.slot.aula::before{border-color:var(--teal)}
+.slot.pratica::before{border-color:var(--accent)}
+.slot.pausa::before{background:var(--line)}
+.slot time{font-variant-numeric:tabular-nums;font-weight:700;color:var(--muted);font-size:15px}
+.slot .what{min-width:0}
+.slot .what small{display:block;color:var(--muted);font-size:14px}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:3px solid var(--line);vertical-align:-1px}
+.legend .l1::before{border-color:var(--teal)}.legend .l2::before{border-color:var(--accent)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;counter-increment:s}
+.step::before{content:counter(s);display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;align-items:center;justify-content:center;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+footer.band{padding-block:28px;font-size:14px;color:var(--muted);text-align:center}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--line)}
+.tabs nav{max-width:1040px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs a{flex:0 0 auto;color:var(--navy-ink);opacity:.7;text-decoration:none;font-weight:700;font-size:15px;padding:14px 14px 12px;border-bottom:3px solid transparent}
+.tabs a:hover{opacity:1}
+.tabs a[aria-current="page"]{opacity:1;border-bottom-color:var(--ink)}
+.tabs a:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.why .panel p{color:var(--muted);font-size:15.5px}
+.go{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.go a{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;color:var(--ink);text-decoration:none}
+.go a:hover{border-color:var(--accent)}
+.go a b{font-family:var(--display);font-size:18px}
+.go a span{color:var(--muted);font-size:14.5px}
+.next{display:flex;justify-content:flex-end}
+.next a{color:var(--accent);font-weight:700;text-decoration:none}
+@media (max-width:520px){.slot{grid-template-columns:1fr;gap:2px}}
+</style>
+</head>
+<body>
+
+
+<div class="tabs"><nav aria-label="Partes da proposta">
+<a href="#proposta" data-t="proposta">Proposta</a>
+<a href="#cenarios" data-t="cenarios">Cenários</a>
+<a href="#vendas" data-t="vendas">Página de vendas</a>
+<a href="#bonus" data-t="bonus">Bônus em PDF</a>
+<a href="#criativos" data-t="criativos">Criativos</a>
+<a href="#cronograma" data-t="cronograma">Cronograma</a>
+<a href="#investimento" data-t="investimento">Investimento</a>
+</nav></div>
+
+<header class="band hero" data-tab="proposta">
+<div class="wrap">
+<div class="hero-top"><div style="display:flex;flex-direction:column;gap:14px;flex:1 1 300px;min-width:0"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<p class="eyebrow">Proposta de projeto · para Gabi</p>
+<h1>Curso “Ponta dos pés no TEA”</h1></div><svg class="ribbon" viewBox="0 0 100 130" role="img" aria-label="Fita da conscientização do autismo">
+<defs><clipPath id="rb"><path d="M50 8 C28 8 24 34 36 54 L14 118 L30 122 L50 70 L70 122 L86 118 L64 54 C76 34 72 8 50 8Z M50 24 C60 24 60 38 50 52 C40 38 40 24 50 24Z" fill-rule="evenodd"/></clipPath></defs>
+<g clip-path="url(#rb)"><rect x="0" y="0" width="25" height="130" fill="#E5484D"/><rect x="25" y="0" width="25" height="130" fill="#F2B21F"/><rect x="50" y="0" width="25" height="130" fill="#2FA36B"/><rect x="75" y="0" width="25" height="130" fill="#2E6FD8"/></g></svg></div>
+<p class="lead">Um resumo de tudo o que conversamos: como o curso será gravado, como ficará a página de vendas, o PDF de bônus, os criativos para o Instagram e o cronograma do dia de gravação.</p>
+<div class="facts">
+<div class="fact"><b>10</b><span>aulas de ~20 min</span></div>
+<div class="fact"><b>R$ 297</b><span>ticket do curso</span></div>
+<div class="fact"><b>2</b><span>cenários: mesa e tatame</span></div>
+<div class="fact"><b>1 dia</b><span>de gravação, 8h às 17h30</span></div>
+</div>
+<div class="chips">
+<span class="chip">Fisios recém-formados</span><span class="chip">Fisios em transição de área</span><span class="chip">Quem quer dominar a técnica</span><span class="chip">Pais de crianças autistas</span>
+</div>
+</div>
+</header>
+
+<section class="band" data-tab="proposta">
+<div class="wrap">
+<p class="eyebrow">Por que a proposta está assim</p>
+<h2>Ver o curso antes de gravar</h2>
+<p class="lead">Em vez de ideias soltas em mensagens, montei o projeto inteiro em um só lugar, para você enxergar como cada parte vai ficar e decidir com calma antes do dia da gravação.</p>
+<div class="why">
+<div class="panel"><h3>Tudo em um lugar</h3><p>Cada aba é uma parte do projeto. Você navega no seu tempo e pode voltar quando quiser.</p></div>
+<div class="panel"><h3>Decidir antes de gravar</h3><p>Ver o cenário, a página e os materiais antes evita regravar e retrabalho depois.</p></div>
+<div class="panel"><h3>Pensado para seus 4 públicos</h3><p>A página, o bônus e os criativos falam com fisioterapeutas e com pais ao mesmo tempo.</p></div>
+<div class="panel"><h3>Cada aba, uma aprovação</h3><p>Olhe aba por aba e me diga o que aprova e o que quer ajustar.</p></div>
+</div>
+<h3 style="margin-top:12px">O que tem em cada aba</h3>
+<div class="go">
+<a href="#cenarios"><b>Cenários</b><span>Onde e como as aulas serão gravadas</span></a>
+<a href="#vendas"><b>Página de vendas</b><span>Como o aluno conhece e compra o curso</span></a>
+<a href="#bonus"><b>Bônus em PDF</b><span>O guia de exercícios para as famílias</span></a>
+<a href="#criativos"><b>Criativos</b><span>Ideias de Reels para o Instagram</span></a>
+<a href="#cronograma"><b>Cronograma</b><span>Como será o dia de gravação</span></a>
+<a href="#investimento"><b>Investimento</b><span>Em quantas vendas o curso se paga</span></a>
+</div>
+</div>
+</section>
+
+<section class="band" data-tab="cenarios">
+<div class="wrap">
+<p class="eyebrow">Os cenários</p>
+<h2>Teoria na mesa, prática no tatame</h2>
+<p class="lead">Dois ambientes no mesmo estúdio, com luz e enquadramento fixos para todas as aulas ficarem com a mesma cara.</p>
+<div class="two">
+<div class="panel">
+<div class="scene"><svg viewBox="0 0 380 240" role="img" aria-label="Professora sentada à mesa com notebook, parede azul ao fundo">
+<rect width="380" height="186" fill="#1E3A6B"/><rect y="186" width="380" height="54" fill="#CFC8BA"/>
+<rect x="268" y="34" width="66" height="58" rx="8" fill="#2B5DA8"/><text x="301" y="70" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="700" font-size="22" fill="#fff">iM</text>
+<rect x="40" y="158" width="28" height="30" rx="3" fill="#E8E4DA"/><ellipse cx="54" cy="134" rx="9" ry="22" fill="#3E8E4E"/><ellipse cx="42" cy="146" rx="7" ry="15" fill="#357A43"/><ellipse cx="66" cy="146" rx="7" ry="15" fill="#357A43"/>
+<rect x="152" y="92" width="76" height="82" rx="14" fill="#F2C230"/>
+<ellipse cx="190" cy="82" rx="22" ry="27" fill="#2B1E1A"/><circle cx="190" cy="84" r="16" fill="#E9BFA0"/>
+<path d="M154 166 Q156 124 176 114 L204 114 Q224 124 226 166Z" fill="#F3D3CF"/>
+<rect x="56" y="164" width="268" height="12" rx="2" fill="#B9824F"/>
+<polygon points="244,134 294,129 297,164 247,164" fill="#A3A4AA"/><circle cx="104" cy="156" r="8" fill="#E2483D"/>
+</svg></div>
+<h3>Cenário 1 · Mesa</h3>
+<ul><li>Parede azul com o logo ao fundo, cadeira amarela</li><li>Notebook de lado, para não tapar o corpo</li><li>Teleprompter na câmera para as aulas teóricas</li></ul>
+</div>
+<div class="panel">
+<div class="scene"><svg viewBox="0 0 380 240" role="img" aria-label="Tatame de EVA cinza com professora ajoelhada demonstrando exercício">
+<rect width="380" height="150" fill="#EEF0F2"/><path d="M0 150 L380 150 L380 240 L0 240Z" fill="#E7E3DC"/>
+<path d="M40 160 L340 160 L370 232 L10 232Z" fill="#8F969E"/>
+<path d="M115 160 L95 232 M190 160 L190 232 M265 160 L285 232 M28 196 L354 196" stroke="#7A8189" stroke-width="2"/>
+<rect x="296" y="112" width="52" height="18" rx="3" fill="#9B7BD0"/><rect x="296" y="96" width="52" height="16" rx="3" fill="#B49BE0"/>
+<circle cx="160" cy="88" r="15" fill="#E9BFA0"/><ellipse cx="160" cy="84" rx="17" ry="18" fill="#2B1E1A" opacity=".9"/><circle cx="160" cy="90" r="13" fill="#E9BFA0"/>
+<path d="M142 168 Q140 118 160 106 Q180 118 180 168Z" fill="#1F8A5B"/>
+<rect x="130" y="166" width="62" height="12" rx="6" fill="#1F2A44"/>
+<circle cx="232" cy="150" r="11" fill="#F2C29B"/><rect x="222" y="160" width="22" height="26" rx="8" fill="#F2C230"/>
+<path d="M226 186 L222 206 M240 186 L244 206" stroke="#1F2A44" stroke-width="7" stroke-linecap="round"/>
+<path d="M178 132 L222 170" stroke="#E9BFA0" stroke-width="6" stroke-linecap="round"/>
+</svg></div>
+<h3>Cenário 2 · Tatame</h3>
+<ul><li>Tatame de EVA no chão, que replica um consultório</li><li>Câmera baixa, na altura do chão, e plano fechado nos pés</li><li>Objetos da Gabi: bola, almofadas, degrau, brinquedos</li></ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="band alt" data-tab="vendas">
+<div class="wrap">
+<p class="eyebrow">A página de vendas</p>
+<h2>Onde o aluno conhece e compra o curso</h2>
+<p class="lead">Página própria, com o botão de compra levando direto ao checkout da Hotmart. Os textos entre colchetes serão preenchidos com as informações reais da Gabi.</p>
+<div class="browser">
+<div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">gabi.edemaquila.com.br</span></div>
+
+<div class="lp-hero"><div>
+<small class="lp-k" style="color:#E5484D">CURSO ONLINE · FISIOTERAPIA PEDIÁTRICA</small>
+<h3>Ponta dos pés no Transtorno do Espectro Autista</h3>
+<p style="color:#566079;font-size:15px">Aprenda a avaliar e conduzir a intervenção da marcha na ponta dos pés em crianças autistas, com aulas teóricas e práticas gravadas em consultório.</p>
+<span class="btn">Quero me inscrever</span>
+<small style="color:#566079">10 aulas · certificado · acesso pela Hotmart</small>
+</div><div class="lp-ph">[vídeo de apresentação da Gabi, 1 a 2 min]</div></div>
+
+<div class="lp-sec" style="background:#FFFFFF">
+<small class="lp-k">VOCÊ SE IDENTIFICA?</small>
+<h4>Quando a criança anda na ponta dos pés, as dúvidas aparecem</h4>
+<div class="lp-grid">
+<div class="lp-card"><b>“Por onde começo a avaliação?”</b>Falta um roteiro claro para observar a marcha.</div>
+<div class="lp-card"><b>“Que exercício escolher?”</b>Muitas opções e pouca segurança sobre a melhor.</div>
+<div class="lp-card"><b>“Como orientar a família?”</b>Os pais querem ajudar em casa e não sabem como.</div>
+</div>
+</div>
+
+<div class="lp-sec" style="background:#fff">
+<small class="lp-k">PARA QUEM É</small>
+<h4>Feito para quatro perfis</h4>
+<div class="lp-grid">
+<div class="lp-card"><b>Fisios recém-formados</b>Começar a atender TEA com segurança.</div>
+<div class="lp-card"><b>Fisios em transição</b>Migrar para a pediatria.</div>
+<div class="lp-card"><b>Quem quer aprofundar</b>Dominar a intervenção na ponta dos pés.</div>
+<div class="lp-card"><b>Pais de crianças autistas</b>Entender e apoiar em casa.</div>
+</div>
+</div>
+
+<div class="lp-sec" style="background:#FAF7EF">
+<small class="lp-k">CONTEÚDO</small>
+<h4>10 aulas, da teoria à prática</h4>
+<div class="lp-mods">
+<div><span>1–5</span><b>Módulo teórico</b>[Títulos das aulas: conceitos, causas, avaliação…]</div>
+<div><span>6–10</span><b>Módulo prático</b>[Títulos das aulas: exercícios demonstrados no tatame…]</div>
+</div>
+</div>
+
+<div class="lp-sec lp-row" style="background:#fff">
+<div class="lp-ph lp-ph2">[foto da Gabi]</div>
+<div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:6px">
+<small class="lp-k">SUA PROFESSORA</small>
+<h4>Gabi [sobrenome]</h4>
+<p style="color:#5A6378;font-size:14px">Fisioterapeuta pediátrica · CREFITO [número]. [Formação, especializações e tempo de atuação com crianças com TEA.]</p>
+</div>
+</div>
+
+<div class="lp-sec" style="background:#FFFFFF">
+<small class="lp-k">DEPOIMENTOS</small>
+<h4>Quem já conhece o trabalho</h4>
+<div class="lp-grid">
+<div class="lp-card">[Depoimento real de colega]<b style="margin-top:6px">[Nome]</b></div>
+<div class="lp-card">[Depoimento real de mãe ou pai]<b style="margin-top:6px">[Nome]</b></div>
+<div class="lp-card">[Print de comentário do Instagram]<b style="margin-top:6px">[@perfil]</b></div>
+</div>
+</div>
+
+<div class="lp-price">
+<small class="lp-k">TUDO QUE VOCÊ RECEBE</small>
+<div class="lp-list">
+<div><span>10 aulas teóricas e práticas</span><span>✓</span></div>
+<div><span>Bônus: guia de exercícios para casa (PDF)</span><span>✓</span></div>
+<div><span>Material de apoio e protocolo de avaliação</span><span>✓</span></div>
+<div><span>Certificado de conclusão</span><span>✓</span></div>
+<div><span>[Suporte para dúvidas por X meses]</span><span>✓</span></div>
+</div>
+<strong>R$ 297</strong>
+<small style="color:#5A6378">ou em até [X]x de R$ [valor] no cartão</small>
+<span class="btn" style="align-self:center">Garantir minha vaga</span>
+<div class="lp-guar"><b>Garantia de 7 dias</b>Se não gostar, a Hotmart devolve 100% do valor.</div>
+</div>
+
+<div class="lp-sec" style="background:#fff">
+<small class="lp-k">DÚVIDAS FREQUENTES</small>
+<div class="lp-faq">
+<details><summary>Como acesso o curso?</summary><p>Pelo e-mail da Hotmart, logo após a compra.</p></details>
+<details><summary>Por quanto tempo tenho acesso?</summary><p>[Definir: 1 ano ou vitalício]</p></details>
+<details><summary>Sou pai ou mãe. Serve para mim?</summary><p>Sim, há conteúdo e bônus pensados para as famílias.</p></details>
+<details><summary>Tem certificado?</summary><p>Sim, emitido ao concluir as aulas.</p></details>
+</div>
+</div>
+
+<div class="lp-foot">Conteúdo educativo, não substitui avaliação individual. · © Gabi [sobrenome] · [@instagram]</div>
+</div>
+</div>
+</section>
+
+<section class="band" data-tab="bonus">
+<div class="wrap">
+<p class="eyebrow">O bônus em PDF</p>
+<h2>Guia de brincadeiras para as famílias</h2>
+<p class="lead">Exercícios lúdicos ilustrados, com explicação e dicas para os pais. A seleção final dos exercícios, a quantidade e a frequência ficam a critério da Gabi.</p>
+<div class="pdfs">
+<div class="page">
+<div class="cov"><small>GUIA PARA AS FAMÍLIAS · PONTA DOS PÉS NO TEA</small><b>Brincadeiras para apoiar o pé inteiro no chão</b></div>
+<div class="warn"><b>Antes de começar:</b> sugestões gerais que não substituem a avaliação do fisioterapeuta. Faça como brincadeira, sem forçar.</div>
+<div class="ex"><svg viewBox="0 0 120 80" aria-hidden="true"><line x1="10" y1="72" x2="110" y2="72" stroke="#CDBFAE" stroke-width="3"/><circle cx="55" cy="18" r="8" fill="#F2C29B"/><rect x="47" y="27" width="16" height="22" rx="5" fill="#1F8A5B"/><path d="M51 49 L51 66 L60 60 M59 49 L59 66 L68 60" stroke="#1F2A44" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="51" cy="68" r="3" fill="#2E6FD8"/><circle cx="59" cy="68" r="3" fill="#2E6FD8"/><path d="M80 45 L104 45 M98 40 L104 45 L98 50" stroke="#2E6FD8" stroke-width="2.5" fill="none"/></svg><div><small>EXERCÍCIO 1</small><b>Andar de pinguim</b>Andar apoiado nos calcanhares, com a ponta dos pés levantada.</div></div>
+<div class="ex"><svg viewBox="0 0 120 80" aria-hidden="true"><line x1="10" y1="72" x2="110" y2="72" stroke="#CDBFAE" stroke-width="3"/><circle cx="52" cy="28" r="8" fill="#F2C29B"/><rect x="44" y="36" width="16" height="20" rx="5" fill="#1F8A5B" transform="rotate(20 52 46)"/><path d="M50 56 L62 62 L56 70" stroke="#1F2A44" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M56 44 L76 66" stroke="#F2C29B" stroke-width="4" stroke-linecap="round"/><circle cx="82" cy="66" r="6" fill="#E2483D"/></svg><div><small>EXERCÍCIO 2</small><b>Agachar e pegar</b>Pegar brinquedos no chão com os pés inteiros apoiados.</div></div>
+<div class="ex"><svg viewBox="0 0 120 80" aria-hidden="true"><rect x="8" y="66" width="34" height="8" rx="2" fill="#C9E4D9"/><rect x="44" y="66" width="34" height="8" rx="2" fill="#F3E3B6"/><rect x="80" y="66" width="34" height="8" rx="2" fill="#D8D3F0"/><circle cx="58" cy="18" r="8" fill="#F2C29B"/><rect x="50" y="27" width="16" height="22" rx="5" fill="#1F8A5B"/><path d="M54 49 L54 64 M62 49 L62 64" stroke="#1F2A44" stroke-width="5" stroke-linecap="round"/></svg><div><small>EXERCÍCIO 4</small><b>Caminho de texturas</b>Passar descalço por tapetes e materiais diferentes.</div></div>
+</div>
+<div class="page">
+<div class="ex"><svg viewBox="0 0 120 80" aria-hidden="true"><line x1="10" y1="72" x2="110" y2="72" stroke="#CDBFAE" stroke-width="3"/><circle cx="74" cy="18" r="8" fill="#F2C29B"/><rect x="66" y="27" width="16" height="22" rx="5" fill="#1F8A5B"/><path d="M70 49 L70 66 M78 49 L78 66" stroke="#1F2A44" stroke-width="5" stroke-linecap="round"/><path d="M50 40 L16 40 M22 35 L16 40 L22 45" stroke="#2E6FD8" stroke-width="2.5" fill="none"/></svg><div><small>EXERCÍCIO 5</small><b>Andar para trás</b>Brincar de caminhão de ré, devagar.</div></div>
+<div class="ex"><svg viewBox="0 0 120 80" aria-hidden="true"><line x1="10" y1="72" x2="110" y2="72" stroke="#CDBFAE" stroke-width="3"/><ellipse cx="22" cy="74" rx="6" ry="3" fill="#FFD66B"/><ellipse cx="34" cy="74" rx="6" ry="3" fill="#FFD66B"/><circle cx="66" cy="16" r="8" fill="#F2C29B"/><rect x="58" y="25" width="16" height="22" rx="5" fill="#1F8A5B"/><path d="M60 28 L50 12 M72 28 L82 12" stroke="#F2C29B" stroke-width="4" stroke-linecap="round"/><path d="M62 47 L62 66 M70 47 L70 66" stroke="#1F2A44" stroke-width="5" stroke-linecap="round"/></svg><div><small>EXERCÍCIO 6</small><b>Estátua nas pegadas</b>Pisar com o pé inteiro em pegadas de papel e ficar parado.</div></div>
+<div class="ex"><svg viewBox="0 0 120 80" aria-hidden="true"><line x1="10" y1="72" x2="110" y2="72" stroke="#CDBFAE" stroke-width="3"/><rect x="20" y="48" width="34" height="5" rx="2" fill="#B9824F"/><path d="M24 53 L24 72 M50 53 L50 72" stroke="#8A5E36" stroke-width="3"/><circle cx="36" cy="18" r="8" fill="#F2C29B"/><rect x="28" y="26" width="16" height="22" rx="5" fill="#1F8A5B"/><path d="M42 46 L62 46 L62 68" stroke="#1F2A44" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="80" cy="64" r="8" fill="#3B82C4"/></svg><div><small>EXERCÍCIO 7</small><b>Chutar a bola sentado</b>Empurrar uma bola leve com a sola do pé.</div></div>
+<div class="warn"><b>Dicas gerais:</b> descalço, em superfície segura, poucos minutos por dia com constância.</div>
+<p style="margin-top:auto;color:#5A6378;font-size:9px">[Nome da fisioterapeuta] · CREFITO [número] · [@instagram]</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="band alt" data-tab="criativos">
+<div class="wrap">
+<p class="eyebrow">Criativos para o Instagram</p>
+<h2>Reels gravados no mesmo dia</h2>
+<p style="color:var(--muted);font-size:15px">Toque em um criativo para ver o roteiro completo.</p>
+<p class="lead">Vídeos curtos, na vertical, para aquecer o público antes do lançamento. Com eles dá para postar cerca de 3 vezes por semana durante um mês.</p>
+<div class="reels">
+<details class="reel"><summary><div class="tags"><span class="tag pais">Pais</span><span class="tag">Mesa · 45 s</span></div><p class="hook">“Seu filho anda na ponta dos pés? Isso tem explicação.”</p><p>Explica de forma simples e acolhedora por que acontece.</p><span class="open">Ver roteiro completo</span></summary><div class="script"><div class="rs"><b>Gancho (3 s)</b><p>“Seu filho anda na ponta dos pés? Isso tem explicação.”</p></div><div class="rs"><b>Fala</b><p>“Em crianças com autismo, andar na ponta dos pés é muito comum e pode estar ligado à forma como elas sentem o próprio corpo e o chão. Não é manha nem preguiça.”</p></div><div class="rs"><b>Fechamento</b><p>“Um fisioterapeuta pode avaliar e orientar. Me segue para entender mais.”</p></div><div class="rs"><b>Imagem extra</b><p>Pés de boneco ou de criança (com autorização) andando no tatame.</p></div></div></details>
+<details class="reel"><summary><div class="tags"><span class="tag fisio">Fisios</span><span class="tag">Mesa · 60 s</span></div><p class="hook">“Se você atende crianças com TEA, não cometa esses 3 erros.”</p><p>Um erro de avaliação por vez, com texto na tela.</p><span class="open">Ver roteiro completo</span></summary><div class="script"><div class="rs"><b>Gancho</b><p>“Se você atende crianças com TEA, não cometa esses 3 erros.”</p></div><div class="rs"><b>Fala</b><p>Um erro por vez, contando nos dedos, com o número e o erro escritos na tela. Os três erros são escolhidos pela Gabi, pela experiência clínica dela.</p></div><div class="rs"><b>Fechamento</b><p>“Quer aprender a avaliar do jeito certo? Em breve, meu curso.”</p></div><div class="rs"><b>Gravação</b><p>Teleprompter ligado, plano médio na mesa.</p></div></div></details>
+<details class="reel"><summary><div class="tags"><span class="tag pais">Pais</span><span class="tag fisio">Fisios</span><span class="tag">Tatame · 30 s</span></div><p class="hook">“Um exercício simples para trabalhar o apoio do calcanhar.”</p><p>Série de exercícios do dia, gravando 3 ou 4 em sequência.</p><span class="open">Ver roteiro completo</span></summary><div class="script"><div class="rs"><b>Gancho</b><p>“Um exercício simples para trabalhar o apoio do calcanhar.”</p></div><div class="rs"><b>Fala</b><p>Demonstra com boneco ou criança (com autorização), explicando em 3 passos curtos.</p></div><div class="rs"><b>Fechamento</b><p>“Salva para fazer depois. Tem muito mais no curso, link na bio.”</p></div><div class="rs"><b>Gravação</b><p>Câmera baixa, na altura do tatame, e um plano fechado nos pés. Gravar 3 ou 4 exercícios diferentes em sequência rende posts para semanas.</p></div></div></details>
+<details class="reel"><summary><div class="tags"><span class="tag pais">Pais</span><span class="tag">Mesa · 40 s</span></div><p class="hook">“Andar na ponta dos pés passa sozinho? Mito ou verdade?”</p><p>Três mitos respondidos, com placas na edição.</p><span class="open">Ver roteiro completo</span></summary><div class="script"><div class="rs"><b>Gancho</b><p>“Andar na ponta dos pés passa sozinho? Mito ou verdade?”</p></div><div class="rs"><b>Fala</b><p>A Gabi responde 3 mitos comuns, um de cada vez. Na edição, entram placas de MITO e VERDADE na tela.</p></div><div class="rs"><b>Fechamento</b><p>“Comenta qual desses você já ouviu.”</p></div></div></details>
+<details class="reel"><summary><div class="tags"><span class="tag pais">Pais</span><span class="tag">Mesa · 40 s</span></div><p class="hook">“Uma mãe me perguntou…”</p><p>Série de perguntas reais, anônimas, respondidas em vídeo.</p><span class="open">Ver roteiro completo</span></summary><div class="script"><div class="rs"><b>Gancho</b><p>A Gabi lê uma pergunta real que recebeu, sem identificar quem mandou: “Uma mãe me perguntou…”</p></div><div class="rs"><b>Fala</b><p>Responde com calma, em linguagem simples.</p></div><div class="rs"><b>Fechamento</b><p>“Manda sua dúvida nos comentários que eu respondo em vídeo.”</p></div><div class="rs"><b>Gravação</b><p>Gravar 3 ou 4 perguntas de uma vez, que viram uma série.</p></div></div></details>
+<details class="reel"><summary><div class="tags"><span class="tag fisio">Fisios</span><span class="tag">Tatame · 60 s</span></div><p class="hook">“O que eu observo primeiro numa criança que anda na ponta dos pés.”</p><p>Três pontos de avaliação, demonstrados com boneco.</p><span class="open">Ver roteiro completo</span></summary><div class="script"><div class="rs"><b>Gancho</b><p>“O que eu observo primeiro numa criança que anda na ponta dos pés.”</p></div><div class="rs"><b>Fala</b><p>A Gabi aponta 3 pontos de observação, usando um boneco ou demonstrando no próprio pé.</p></div><div class="rs"><b>Fechamento</b><p>“No curso, eu mostro a avaliação completa.”</p></div></div></details>
+<details class="reel"><summary><div class="tags"><span class="tag">Todos</span><span class="tag">Estúdio · 20 s</span></div><p class="hook">Bastidores da gravação</p><p>Sem fala: chegada, microfone, tatame, erros engraçados.</p><span class="open">Ver roteiro completo</span></summary><div class="script"><div class="rs"><b>Imagens</b><p>Cortes rápidos da Gabi chegando, ajustando o microfone, sentando na mesa, testando o tatame e rindo de um erro de gravação.</p></div><div class="rs"><b>Texto na tela</b><p>“Gravando algo especial para quem quer ajudar crianças com TEA 🧡”</p></div><div class="rs"><b>Gravação</b><p>Feito ao longo do dia, com o celular, sem horário próprio.</p></div></div></details>
+<details class="reel"><summary><div class="tags"><span class="tag">Todos</span><span class="tag">Mesa · 60 s</span></div><p class="hook">“Vou te contar por que decidi gravar esse curso.”</p><p>O vídeo mais pessoal, sem teleprompter e com plano fechado.</p><span class="open">Ver roteiro completo</span></summary><div class="script"><div class="rs"><b>Gancho</b><p>“Vou te contar por que decidi gravar esse curso.”</p></div><div class="rs"><b>Fala</b><p>A motivação pessoal da Gabi, uma história real de atendimento (sem identificar o paciente) e o que ela espera que as pessoas levem do curso.</p></div><div class="rs"><b>Fechamento</b><p>“Se isso faz sentido para você, me acompanha que as inscrições abrem logo.”</p></div><div class="rs"><b>Gravação</b><p>Teleprompter desligado e plano mais fechado no rosto. É o vídeo mais emocional da série.</p></div></div></details>
+</div>
+<p style="color:var(--muted);font-size:15px">Cuidados: nenhuma promessa de resultado ou cura, e autorização por escrito dos pais para qualquer criança que apareça.</p>
+</div>
+</section>
+
+<section class="band" data-tab="cronograma">
+<div class="wrap">
+<p class="eyebrow">O dia de gravação</p>
+<h2>Cronograma das 8h às 17h30</h2>
+<p class="lead">Estúdio já montado. As aulas teóricas ficam de manhã, na mesa, e as práticas à tarde, no tatame, para trocar de cenário uma vez só.</p>
+<div class="legend"><span class="l1">Aula teórica (mesa)</span><span class="l2">Aula prática (tatame)</span><span>Pausa e técnica</span></div>
+<div class="tl">
+<div class="slot pausa"><time>08:00–08:15</time><div class="what">Checagem de luz, som e roteiro</div></div>
+<div class="slot aula"><time>08:15–08:55</time><div class="what">Aula 1</div></div>
+<div class="slot aula"><time>08:55–09:35</time><div class="what">Aula 2</div></div>
+<div class="slot aula"><time>09:35–10:15</time><div class="what">Aula 3</div></div>
+<div class="slot aula"><time>10:15–10:55</time><div class="what">Aula 4</div></div>
+<div class="slot aula"><time>10:55–11:35</time><div class="what">Aula 5</div></div>
+<div class="slot pausa"><time>11:35–12:30</time><div class="what">Almoço<small>Troca para o cenário do tatame e backup dos cartões</small></div></div>
+<div class="slot pratica"><time>12:30–13:10</time><div class="what">Aula 6</div></div>
+<div class="slot pratica"><time>13:10–13:50</time><div class="what">Aula 7</div></div>
+<div class="slot pratica"><time>13:50–14:30</time><div class="what">Aula 8</div></div>
+<div class="slot pratica"><time>14:30–15:10</time><div class="what">Aula 9</div></div>
+<div class="slot pratica"><time>15:10–15:50</time><div class="what">Aula 10</div></div>
+<div class="slot pausa"><time>15:50–16:50</time><div class="what">Criativos, vídeo de vendas e fotos<small>Reels do Instagram, apresentação da página e fotos da Gabi</small></div></div>
+<div class="slot pausa"><time>16:50–17:30</time><div class="what">Regravações e backup final</div></div>
+</div>
+<p style="color:var(--muted);font-size:15px">Cada aula conta 40 minutos: 20 de gravação e o resto para ajustes e repetições. A divisão entre teoria e prática é um exemplo e muda conforme o roteiro da Gabi.</p>
+</div>
+</section>
+
+<section class="band alt" data-tab="proposta">
+<div class="wrap">
+<p class="eyebrow">Próximos passos · Próximos passos</p>
+<h2>Para colocar o projeto em pé</h2>
+<div class="steps">
+<div class="step"><h3>Roteiro das aulas</h3><p>Gabi define os títulos e o conteúdo das 10 aulas.</p></div>
+<div class="step"><h3>Data da gravação</h3><p>Reservar o estúdio e combinar os objetos do tatame.</p></div>
+<div class="step"><h3>Cadastro na Hotmart</h3><p>Criar o produto e gerar o link de checkout.</p></div>
+<div class="step"><h3>Lançamento</h3><p>Um mês de criativos no Instagram e abertura das inscrições.</p></div>
+</div>
+</div>
+</section>
+
+
+<section class="band" data-tab="investimento">
+<div class="wrap">
+<p class="eyebrow">Investimento e retorno</p>
+<h2>O curso se paga com 7 vendas</h2>
+<p class="lead">O investimento na produção é de R$ 1.800. Descontando a taxa da Hotmart, cada venda de R$ 297 deixa cerca de R$ 266,60 para você.</p>
+<div class="calc">
+<div class="panel"><small>Investimento</small><b>R$ 1.800</b></div>
+<div class="op">÷</div>
+<div class="panel"><small>Sobra por venda</small><b>R$ 266,60</b><span>R$ 297 − taxa Hotmart (~9,9% + R$ 1)</span></div>
+<div class="op">=</div>
+<div class="panel hl"><small>Vendas para se pagar</small><b>7</b><span>6,75 arredondado para cima</span></div>
+</div>
+<div class="panel">
+<h3>A partir da 8ª venda, é lucro</h3>
+<div class="dots10" aria-label="Sete de dez vendas marcadas como necessárias para cobrir o investimento"><i class="on">1</i><i class="on">2</i><i class="on">3</i><i class="on">4</i><i class="on">5</i><i class="on">6</i><i class="on">7</i><i class="">8</i><i class="">9</i><i class="">10</i></div>
+<p style="color:var(--muted);font-size:15px">As 7 primeiras vendas cobrem a produção. Todas as seguintes ficam para você.</p>
+</div>
+<h3>Cenários de vendas</h3>
+<div class="scs"><div class="sc head"><b>Vendas</b><span>Recebido</span><em>Resultado</em></div><div class="sc"><b>7 vendas</b><span>R$ 1.866</span><em class="pos">+R$ 66</em></div><div class="sc"><b>10 vendas</b><span>R$ 2.666</span><em class="pos">+R$ 866</em></div><div class="sc"><b>20 vendas</b><span>R$ 5.332</span><em class="pos">+R$ 3.532</em></div><div class="sc"><b>50 vendas</b><span>R$ 13.330</span><em class="pos">+R$ 11.530</em></div></div>
+<p style="color:var(--muted);font-size:15px">Valores aproximados, antes de impostos e de eventuais anúncios pagos. A taxa exata aparece no painel da Hotmart. Como o Instagram já tem engajamento, 7 vendas é uma meta alcançável já no lançamento.</p>
+</div>
+</section>
+
+<script>
+(function(){
+  var order=["proposta","cenarios","vendas","bonus","criativos","cronograma","investimento"];
+  var names={cenarios:"Cenários",vendas:"Página de vendas",bonus:"Bônus em PDF",criativos:"Criativos",cronograma:"Cronograma",investimento:"Investimento"};
+  document.querySelectorAll("section[data-tab]").forEach(function(sec){
+    var t=sec.getAttribute("data-tab"),i=order.indexOf(t),n=order[i+1];
+    var last=document.querySelectorAll('section[data-tab="'+t+'"]');
+    if(n&&last[last.length-1]===sec&&t!=="proposta"){
+      var d=document.createElement("p");d.className="next";
+      d.innerHTML='<a href="#'+n+'">Próxima: '+names[n]+' →</a>';
+      sec.querySelector(".wrap").appendChild(d);
+    }
+  });
+  function show(){
+    var t=(location.hash||"").slice(1); if(order.indexOf(t)<0) t="proposta";
+    document.querySelectorAll("[data-tab]").forEach(function(el){el.hidden=el.getAttribute("data-tab")!==t;});
+    document.querySelectorAll(".tabs a").forEach(function(a){
+      if(a.getAttribute("data-t")===t){a.setAttribute("aria-current","page");a.scrollIntoView({block:"nearest",inline:"nearest"});}
+      else a.removeAttribute("aria-current");
+    });
+  }
+  window.addEventListener("hashchange",function(){show();window.scrollTo(0,0);});
+  show();
+})();
+</script>
+<footer class="band">Proposta preparada por Aquila Edem · edemaquila.com.br</footer>
+
+</body>
+</html>
