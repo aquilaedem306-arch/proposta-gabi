@@ -175,48 +175,7 @@ section[data-tab="referencias"] .eyebrow{color:var(--t-yellow);color:#B07800}
 .tabs{position:sticky}
 .tabs nav{scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
 .tabs a{scroll-snap-align:center}
-@media (max-width:640px){
-  body{font-size:16px}
-  .band{padding-block:40px}
-  .wrap{gap:20px}
-  h1{font-size:34px}
-  h2{font-size:27px}
-  .lead{font-size:16.5px}
-  .hero-top{flex-wrap:nowrap;align-items:flex-start;gap:12px}
-  .hero .eyebrow{font-size:23px}
-  .ribbon{width:52px;margin-top:4px}
-  .tabs::before{content:"";position:absolute;right:0;top:0;bottom:4px;width:36px;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,0),var(--navy));z-index:1}
-  .tabs a{font-size:14.5px;padding:13px 11px 11px}
-  .facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .fact{padding:12px 14px}
-  .fact b{font-size:24px}
-  .chip{font-size:14px;padding:5px 12px}
-  .two,.why,.go,.grid,.reels,.igs,.steps{grid-template-columns:1fr}
-  .panel{padding:18px}
-  .op{display:none}
-  .calc .panel{flex-basis:100%}
-  .calc b{font-size:30px}.calc .hl b{font-size:40px}
-  .dots10 i{width:32px;height:32px;font-size:14px}
-  .sc{padding:10px 12px;font-size:14px}
-  .slot{padding-left:16px}
-  .lp-hero,.lp-sec,.lp-body{padding:20px 16px}
-  .lp-price{padding:22px 16px}
-  .lp-ph{min-height:140px}
-  .page{width:100%}
-  .reel .hook{font-size:17px}
-  .ig{padding:16px}.ig-shot{margin:-16px -16px 4px}
-  .me-body{padding:18px}
-  .me-shot img{height:460px;object-fit:cover;object-position:top}
-  .next{display:none}
-  footer.band{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
-  .mnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:8px;align-items:center;justify-content:space-between;
-    background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 18px -12px rgba(27,42,74,.35);
-    padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
-  .mnav a{flex:1 1 0;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);padding:0 10px;text-align:center}
-  .mnav a.go-next{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .mnav a[aria-disabled="true"]{visibility:hidden}
-  .mnav .pos{flex:0 0 auto;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:38px;text-align:center}
-}
+
 .fmt{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
 .fmt-c{background:var(--soft);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:2px}
 .fmt-c strong{font-weight:700;color:var(--ink)}.fmt-c span{font-size:12.5px;color:var(--muted);font-weight:700}
@@ -279,6 +238,8 @@ section[data-tab="roteiros"] .eyebrow{color:var(--t-blue)}
 .tpv-text{max-width:1100px;margin:0 auto;padding:33vh max(24px,env(safe-area-inset-left,0px)) 70vh;font-family:"Fira Sans",system-ui,sans-serif;font-weight:500;line-height:1.35;white-space:pre-wrap;overflow-wrap:anywhere}
 .tpv-text h4{font-family:var(--display);color:#F2B21F;margin:0 0 .6em;font-size:.8em}
 .tpv.mirror .tpv-text{transform:scaleX(-1)}
+
+
 /* pdf */
 .pdfs{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
 .page{width:min(100%,340px);aspect-ratio:210/297;max-width:100%;background:#FFFFFF;color:#1F2A44;border-radius:6px;box-shadow:0 20px 40px -22px rgba(20,26,40,.5);padding:18px;display:flex;flex-direction:column;gap:10px;font-size:11px;line-height:1.4;overflow:hidden}
@@ -334,6 +295,70 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .next{display:flex;justify-content:flex-end}
 .next a{color:var(--accent);font-weight:700;text-decoration:none}
 @media (max-width:520px){.slot{grid-template-columns:1fr;gap:2px}}
+
+
+
+/* celular (no fim para valer sobre o resto) */
+@media (max-width:640px){
+  body{font-size:16px}
+  .band{padding-block:40px}
+  .wrap{gap:20px}
+  h1{font-size:34px}
+  h2{font-size:27px}
+  .lead{font-size:16.5px}
+  .hero-top{flex-wrap:nowrap;align-items:flex-start;gap:12px}
+  .hero .eyebrow{font-size:23px}
+  .ribbon{width:52px;margin-top:4px}
+  .tabs::before{content:"";position:absolute;right:0;top:0;bottom:4px;width:36px;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,0),var(--navy));z-index:1}
+  .tabs a{font-size:14.5px;padding:13px 11px 11px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .fact{padding:12px 14px}
+  .fact b{font-size:24px}
+  .chip{font-size:14px;padding:5px 12px}
+  .two,.why,.go,.grid,.reels,.igs,.steps{grid-template-columns:1fr}
+  .panel{padding:18px}
+  .op{display:none}
+  .calc .panel{flex-basis:100%}
+  .calc b{font-size:30px}.calc .hl b{font-size:40px}
+  .dots10 i{width:32px;height:32px;font-size:14px}
+  .sc{padding:10px 12px;font-size:14px}
+  .slot{padding-left:16px}
+  .lp-hero,.lp-sec,.lp-body{padding:20px 16px}
+  .lp-price{padding:22px 16px}
+  .lp-ph{min-height:140px}
+  .page{width:100%}
+  .reel .hook{font-size:17px}
+  .ig{padding:16px}.ig-shot{margin:-16px -16px 4px}
+  .me-body{padding:18px}
+  .me-shot img{height:460px;object-fit:cover;object-position:top}
+  .next{display:none}
+  footer.band{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .mnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:8px;align-items:center;justify-content:space-between;
+    background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 18px -12px rgba(27,42,74,.35);
+    padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+  .mnav a{flex:1 1 0;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;color:var(--ink);border:1px solid var(--line);padding:0 10px;text-align:center}
+  .mnav a.go-next{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .mnav a[aria-disabled="true"]{visibility:hidden}
+  .mnav .pos{flex:0 0 auto;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:38px;text-align:center}
+}
+@media (max-width:640px){
+  .wrap > .next{display:none!important}
+  .fmt{grid-template-columns:1fr}
+  .dots10{gap:4px}.dots10 i{width:26px;height:26px;font-size:12px;border-width:2px}
+  .tpv-bar{gap:8px 10px}.tpv-l input[type=range]{width:84px}.tpv-b{padding:0 12px;font-size:14px}
+  .tp-f textarea{min-height:260px}
+  body.typing .mnav{display:none}
+  body.typing footer.band{padding-bottom:32px}
+  .me-col,.me-next{font-size:14px}
+  .sc{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width:640px){
+  .next{display:none!important}
+  .dots10{gap:4px}.dots10 i{width:26px;height:26px;font-size:12px;border-width:2px}
+  .fmt{grid-template-columns:1fr}
+  .tpv-l input[type=range]{width:84px}
+  body.typing .mnav{display:none}
+}
 </style>
 </head>
 <body>
@@ -609,7 +634,7 @@ Marca aquela colega fisio que precisa ver isso 👇
 
 <section class="band alt" data-tab="proposta">
 <div class="wrap">
-<p class="eyebrow">Próximos passos · Próximos passos</p>
+<p class="eyebrow">Próximos passos</p>
 <h2>Para colocar o projeto em pé</h2>
 <div class="steps">
 <div class="step"><h3>Roteiro das aulas</h3><p>Gabi define os títulos e o conteúdo das 10 aulas.</p></div>
@@ -625,7 +650,7 @@ Marca aquela colega fisio que precisa ver isso 👇
 <div class="wrap">
 <p class="eyebrow">Roteiros para o teleprompter · aulas e criativos</p>
 <h2>Escreva aqui o texto das aulas e dos criativos</h2>
-<p class="lead">Escolha a aula ou o criativo, escreva o roteiro e ele fica salvo automaticamente. Os criativos já vêm com o texto base da aba Criativos para ela ajustar com as palavras dela. No dia da gravação, toque em “Abrir no teleprompter” para ler em tela cheia, com rolagem automática.</p>
+<p class="lead">Escolha a aula ou o criativo, escreva o roteiro e ele fica salvo automaticamente. Os criativos já vêm com o texto base da aba Criativos para você ajustar com as suas palavras. No dia da gravação, toque em “Abrir no teleprompter” para ler em tela cheia, com rolagem automática.</p>
 <p class="tp-status" id="tp-mode" role="status"></p>
 <div class="tp">
 <nav class="tp-list" aria-label="Aulas" id="tp-list"></nav>
@@ -938,6 +963,10 @@ Antes de falar de exercícios, precisamos olhar para a criança como um todo."><
   $("tpv-close").onclick=close;
   tpv.addEventListener("keydown",function(e){if(e.key===" "){e.preventDefault();run?stop():start();}if(e.key==="Escape")close();});
 })();
+</script>
+<script>
+document.addEventListener("focusin",function(e){if(e.target.matches("input[type=text],textarea"))document.body.classList.add("typing");});
+document.addEventListener("focusout",function(e){if(e.target.matches("input[type=text],textarea"))document.body.classList.remove("typing");});
 </script>
 <footer class="band">Proposta preparada por Aquila Edem · edemaquila.com.br</footer>
 
