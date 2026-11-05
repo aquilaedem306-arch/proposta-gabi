@@ -152,10 +152,10 @@ section[data-tab="referencias"] .eyebrow{color:var(--t-yellow);color:#B07800}
 .ig-link:hover{text-decoration:underline}
 .ig-shot{margin:-20px -20px 4px;border-bottom:1px solid var(--line);border-radius:20px 20px 0 0;overflow:hidden;background:#0c1014}
 .ig-shot img{display:block;width:100%;height:auto}
-.me{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:0;border:2px solid var(--ink);border-radius:22px;overflow:hidden;background:var(--surface)}
+.me{display:grid;grid-template-columns:1fr;gap:0;border:2px solid var(--ink);border-radius:22px;overflow:hidden;background:var(--surface)}
 @media (max-width:820px){.me{grid-template-columns:1fr}}
-.me-shot{margin:0;background:#0c1014;display:flex;align-items:flex-start}
-.me-shot img{display:block;width:100%;height:auto}
+.me-shot{margin:0;background:#0c1014;display:flex;justify-content:center}
+.me-shot img{display:block;width:100%;max-width:820px;height:auto}
 .me-body{padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .me-h{font-size:24px}
 .me-stats{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;color:var(--muted);font-variant-numeric:tabular-nums}
