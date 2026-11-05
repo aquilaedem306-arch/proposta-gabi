@@ -237,10 +237,16 @@ section[data-tab="roteiros"] .eyebrow{color:var(--t-blue)}
 .tp-list{display:flex;flex-direction:column;gap:6px}
 @media (max-width:760px){.tp-list{flex-direction:row;overflow-x:auto;padding-bottom:4px}}
 .tp-item{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);min-width:150px}
+.tp-item{width:100%;overflow:hidden}
+@media (max-width:760px){.tp-item{width:auto;max-width:200px}}
 .tp-item small{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--muted)}
-.tp-item span{font-size:14px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tp-item span{font-size:14px;line-height:1.3;white-space:normal;overflow-wrap:anywhere;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .tp-item.on{border-color:var(--ink);box-shadow:inset 4px 0 0 var(--t-blue)}
 .tp-item.pratica.on{box-shadow:inset 4px 0 0 var(--t-green)}
+.tp-item.reels.on{box-shadow:inset 4px 0 0 var(--t-red)}
+.tp-group{margin:8px 2px 2px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tp-group:first-child{margin-top:0}
+@media (max-width:760px){.tp-group{align-self:center;writing-mode:horizontal-tb;min-width:max-content;margin:0 4px}}
 .tp-item:focus-visible{outline:2px solid var(--t-blue);outline-offset:2px}
 .tp-item .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--line);margin-right:6px}
 .tp-item.has .dot{background:var(--t-green)}
@@ -617,16 +623,16 @@ Marca aquela colega fisio que precisa ver isso 👇
 
 <section class="band" data-tab="roteiros">
 <div class="wrap">
-<p class="eyebrow">Roteiros para o teleprompter</p>
-<h2>Escreva aqui o texto de cada aula</h2>
-<p class="lead">Escolha a aula, escreva o roteiro e ele fica salvo automaticamente. No dia da gravação, toque em “Abrir no teleprompter” para ler em tela cheia, com rolagem automática.</p>
+<p class="eyebrow">Roteiros para o teleprompter · aulas e criativos</p>
+<h2>Escreva aqui o texto das aulas e dos criativos</h2>
+<p class="lead">Escolha a aula ou o criativo, escreva o roteiro e ele fica salvo automaticamente. Os criativos já vêm com o texto base da aba Criativos para ela ajustar com as palavras dela. No dia da gravação, toque em “Abrir no teleprompter” para ler em tela cheia, com rolagem automática.</p>
 <p class="tp-status" id="tp-mode" role="status"></p>
 <div class="tp">
 <nav class="tp-list" aria-label="Aulas" id="tp-list"></nav>
 <div class="tp-ed panel">
 <div class="tp-row">
 <label class="tp-f" style="flex:1 1 260px">Título da aula<input id="tp-title" type="text" placeholder="Ex.: O que é a marcha na ponta dos pés"></label>
-<label class="tp-f" style="flex:0 1 200px">Módulo<select id="tp-mod"><option value="teoria">Teoria (mesa)</option><option value="pratica">Prática (tatame)</option></select></label>
+<label class="tp-f" style="flex:0 1 200px">Módulo<select id="tp-mod"><option value="teoria">Teoria (mesa)</option><option value="pratica">Prática (tatame)</option><option value="reels">Reels (Instagram)</option></select></label>
 </div>
 <label class="tp-f">Roteiro
 <textarea id="tp-text" rows="14" placeholder="Escreva como vai falar, em frases curtas. Pule uma linha para cada pausa ou troca de assunto.
@@ -637,15 +643,15 @@ Olá! Nesta aula vamos entender por que muitas crianças autistas andam na ponta
 Antes de falar de exercícios, precisamos olhar para a criança como um todo."></textarea></label>
 <div class="tp-meta">
 <span><b id="tp-words">0</b> palavras</span>
-<span>≈ <b id="tp-min">0</b> min de fala</span>
+<span>≈ <b id="tp-min">0</b> <span id="tp-unit">min de fala</span></span>
 <span class="tp-bar" aria-hidden="true"><i id="tp-fill"></i></span>
 <span id="tp-save" class="tp-save">—</span>
 </div>
-<p class="tp-hint">Meta de 20 minutos ≈ 2.600 palavras (falando cerca de 130 palavras por minuto).</p>
+<p class="tp-hint" id="tp-goal">Meta de 20 minutos ≈ 2.600 palavras (falando cerca de 130 palavras por minuto).</p>
 <div class="tp-actions">
 <button type="button" class="tp-btn main" id="tp-open">Abrir no teleprompter</button>
-<button type="button" class="tp-btn" id="tp-prev">← Aula anterior</button>
-<button type="button" class="tp-btn" id="tp-next">Próxima aula →</button>
+<button type="button" class="tp-btn" id="tp-prev">← Anterior</button>
+<button type="button" class="tp-btn" id="tp-next">Próximo →</button>
 </div>
 </div>
 </div>
@@ -854,11 +860,15 @@ Antes de falar de exercícios, precisamos olhar para a criança como um todo."><
 </script>
 <script>
 (function(){
-  var N=10, cur=0, dbRef=null, data={}, timer=null, dirty=false;
+  var CRI=[["Por que anda na ponta dos pés?", "Seu filho anda na ponta dos pés? Isso tem explicação.\n\nEm crianças com autismo, andar na ponta dos pés é muito comum. Pode estar ligado à forma como elas sentem o próprio corpo e o chão. Não é manha, nem preguiça.\n\nUm fisioterapeuta pode avaliar e orientar.\n\nMe segue para entender mais."], ["3 erros na avaliação", "Se você atende crianças com TEA, não cometa esses 3 erros.\n\nErro número 1: [escrever]\n\nErro número 2: [escrever]\n\nErro número 3: [escrever]\n\nQuer aprender a avaliar do jeito certo? Em breve, meu curso."], ["Exercício do dia", "Um exercício simples para trabalhar o apoio do calcanhar.\n\nPasso 1: [escrever]\n\nPasso 2: [escrever]\n\nPasso 3: [escrever]\n\nSalva para fazer depois. Tem muito mais no curso, link na bio."], ["Mito ou verdade", "Andar na ponta dos pés passa sozinho? Mito ou verdade?\n\nMito 1: [escrever a resposta]\n\nMito 2: [escrever a resposta]\n\nMito 3: [escrever a resposta]\n\nComenta qual desses você já ouviu."], ["Uma mãe me perguntou…", "Uma mãe me perguntou: [ler a pergunta]\n\n[Responder com calma, em linguagem simples]\n\nManda sua dúvida nos comentários que eu respondo em vídeo."], ["O que eu observo primeiro", "O que eu observo primeiro numa criança que anda na ponta dos pés.\n\nPrimeiro: [escrever]\n\nSegundo: [escrever]\n\nTerceiro: [escrever]\n\nNo curso, eu mostro a avaliação completa."], ["Por que criei esse curso", "Vou te contar por que decidi gravar esse curso.\n\n[A motivação pessoal e uma história real de atendimento, sem identificar o paciente]\n\n[O que você espera que as pessoas levem do curso]\n\nSe isso faz sentido para você, me acompanha que as inscrições abrem logo."], ["Inscrições abertas", "Chegou o dia! As inscrições do curso Ponta dos pés no TEA estão abertas.\n\nSão aulas práticas, com mentoria, para você aprender a avaliar e intervir na marcha na ponta dos pés.\n\nO link está aqui embaixo. Te vejo lá dentro!"]];
+  var ITEMS=[];for(var a=0;a<10;a++)ITEMS.push({id:"aula-"+String(a+1).padStart(2,"0"),label:"Aula "+(a+1),kind:"aula",mod:a<5?"teoria":"pratica"});
+  for(var c=0;c<CRI.length;c++)ITEMS.push({id:"criativo-"+String(c+1).padStart(2,"0"),label:"Criativo "+(c+1),kind:"criativo",mod:"reels",t:CRI[c][0],r:CRI[c][1]});
+  var N=ITEMS.length, cur=0, dbRef=null, data={}, timer=null, dirty=false;
   var $=function(id){return document.getElementById(id);};
   var list=$("tp-list"), ti=$("tp-title"), mo=$("tp-mod"), tx=$("tp-text"), sv=$("tp-save"), mode=$("tp-mode");
-  function id(i){return "aula-"+String(i+1).padStart(2,"0");}
-  function def(i){return {titulo:"",modulo:i<5?"teoria":"pratica",roteiro:""};}
+  function id(i){return ITEMS[i].id;}
+  function def(i){var it=ITEMS[i];return {titulo:it.t||"",modulo:it.mod,roteiro:it.r||""};}
+  function modName(m){return m==="teoria"?"Teoria":m==="pratica"?"Prática":"Reels";}
   function get(i){return data[id(i)]||def(i);}
   function lsLoad(){try{var v=JSON.parse(localStorage.getItem("tp-roteiros")||"{}");if(v&&typeof v==="object")data=v;}catch(e){}}
   function lsSave(){try{localStorage.setItem("tp-roteiros",JSON.stringify(data));}catch(e){}}
@@ -866,15 +876,19 @@ Antes de falar de exercícios, precisamos olhar para a criança como um todo."><
   function renderList(){
     list.textContent="";
     for(var i=0;i<N;i++){(function(i){
+      if(i===0||ITEMS[i].kind!==ITEMS[i-1].kind){var h=document.createElement("p");h.className="tp-group";h.textContent=ITEMS[i].kind==="aula"?"Aulas do curso":"Criativos (Reels)";list.appendChild(h);}
       var a=get(i),b=document.createElement("button");b.type="button";
       b.className="tp-item "+a.modulo+(i===cur?" on":"")+(words(a.roteiro)?" has":"");
       if(i===cur)b.setAttribute("aria-current","true");
-      var sm=document.createElement("small");var d=document.createElement("i");d.className="dot";sm.appendChild(d);sm.appendChild(document.createTextNode("Aula "+(i+1)+" · "+(a.modulo==="teoria"?"Teoria":"Prática")));
+      var sm=document.createElement("small");var d=document.createElement("i");d.className="dot";sm.appendChild(d);sm.appendChild(document.createTextNode(ITEMS[i].label+" · "+modName(a.modulo)));
       var sp=document.createElement("span");sp.textContent=a.titulo||"Sem título";
       b.appendChild(sm);b.appendChild(sp);b.onclick=function(){go(i);};list.appendChild(b);
     })(i);}
   }
-  function stats(){var w=words(tx.value),m=w/130;$("tp-words").textContent=w.toLocaleString("pt-BR");$("tp-min").textContent=m<1&&w?"<1":Math.round(m);$("tp-fill").style.width=Math.min(100,m/20*100)+"%";}
+  function stats(){var w=words(tx.value),m=w/130,cr=ITEMS[cur].kind==="criativo";
+    $("tp-words").textContent=w.toLocaleString("pt-BR");
+    if(cr){var sec=Math.round(w/130*60);$("tp-min").textContent=sec+" s";$("tp-fill").style.width=Math.min(100,sec/60*100)+"%";$("tp-unit").textContent="de fala";$("tp-goal").textContent="Meta de Reels: 30 a 60 segundos (≈ 65 a 130 palavras).";}
+    else{$("tp-min").textContent=m<1&&w?"<1":Math.round(m);$("tp-unit").textContent="min de fala";$("tp-fill").style.width=Math.min(100,m/20*100)+"%";$("tp-goal").textContent="Meta de 20 minutos ≈ 2.600 palavras (falando cerca de 130 palavras por minuto).";}}
   function fill(){var a=get(cur);ti.value=a.titulo;mo.value=a.modulo;tx.value=a.roteiro;stats();
     $("tp-prev").disabled=cur===0;$("tp-next").disabled=cur===N-1;}
   function go(i){flush();cur=i;fill();renderList();}
@@ -899,7 +913,7 @@ Antes de falar de exercícios, precisamos olhar para a criança como um todo."><
     dbRef=db.collection("roteiros");
     dbRef.onSnapshot(function(snap){clearTimeout(to);mode.textContent="";
       snap.docs.forEach(function(d){var v=d.data();if(!v)return;if(d.id===id(cur)&&(dirty||document.activeElement===tx||document.activeElement===ti))return;
-        data[d.id]={titulo:String(v.titulo||""),modulo:v.modulo==="pratica"?"pratica":"teoria",roteiro:String(v.roteiro||"")};});
+        data[d.id]={titulo:String(v.titulo||""),modulo:(v.modulo==="pratica"||v.modulo==="reels")?v.modulo:"teoria",roteiro:String(v.roteiro||"")};});
       lsSave();if(!dirty&&document.activeElement!==tx&&document.activeElement!==ti)fill();renderList();
     },function(){clearTimeout(to);mode.textContent="Não foi possível carregar os roteiros salvos. O que você escrever fica neste aparelho.";});
   }).catch(function(){clearTimeout(to);mode.textContent="O texto fica salvo só neste aparelho.";});
@@ -909,7 +923,7 @@ Antes de falar de exercícios, precisamos olhar para a criança como um todo."><
   function start(){run=true;last=0;pos=sc.scrollTop;$("tpv-play").textContent="❚❚ Pausar";raf=requestAnimationFrame(tick);}
   function stop(){run=false;cancelAnimationFrame(raf);$("tpv-play").textContent="▶ Continuar";}
   function size(){tt.style.fontSize=$("tpv-size").value+"px";}
-  $("tp-open").onclick=function(){flush();var a=get(cur);tt.textContent="";var h=document.createElement("h4");h.textContent="Aula "+(cur+1)+(a.titulo?" · "+a.titulo:"");tt.appendChild(h);
+  $("tp-open").onclick=function(){flush();var a=get(cur);tt.textContent="";var h=document.createElement("h4");h.textContent=ITEMS[cur].label+(a.titulo?" · "+a.titulo:"");tt.appendChild(h);
     tt.appendChild(document.createTextNode(a.roteiro||"(Esta aula ainda não tem roteiro.)"));
     tpv.hidden=false;document.body.style.overflow="hidden";sc.scrollTop=0;pos=0;size();$("tpv-play").textContent="▶ Iniciar";
     try{var r=tpv.requestFullscreen&&tpv.requestFullscreen();if(r&&r.catch)r.catch(function(){});}catch(e){}
