@@ -231,6 +231,48 @@ section[data-tab="referencias"] .eyebrow{color:var(--t-yellow);color:#B07800}
 .stx{margin:0;display:flex;flex-direction:column;gap:8px}
 .stx img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line)}
 .stx figcaption{font-size:14px;color:var(--muted);font-weight:500;text-align:center}
+section[data-tab="roteiros"] .eyebrow{color:var(--t-blue)}
+.tp{display:grid;grid-template-columns:220px minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:760px){.tp{grid-template-columns:1fr}}
+.tp-list{display:flex;flex-direction:column;gap:6px}
+@media (max-width:760px){.tp-list{flex-direction:row;overflow-x:auto;padding-bottom:4px}}
+.tp-item{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);min-width:150px}
+.tp-item small{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--muted)}
+.tp-item span{font-size:14px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tp-item.on{border-color:var(--ink);box-shadow:inset 4px 0 0 var(--t-blue)}
+.tp-item.pratica.on{box-shadow:inset 4px 0 0 var(--t-green)}
+.tp-item:focus-visible{outline:2px solid var(--t-blue);outline-offset:2px}
+.tp-item .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--line);margin-right:6px}
+.tp-item.has .dot{background:var(--t-green)}
+.tp-ed{gap:14px}
+.tp-row{display:flex;flex-wrap:wrap;gap:12px}
+.tp-f{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.03em}
+.tp-f input,.tp-f select,.tp-f textarea{font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;letter-spacing:0}
+.tp-f textarea{min-height:320px;line-height:1.6;resize:vertical}
+.tp-f input:focus,.tp-f select:focus,.tp-f textarea:focus{outline:2px solid var(--t-blue);outline-offset:1px;border-color:transparent}
+.tp-meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:14.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tp-meta b{color:var(--ink)}
+.tp-bar{flex:1 1 120px;height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.tp-bar i{display:block;height:100%;width:0;background:var(--t-green);border-radius:99px}
+.tp-save{font-size:13px}
+.tp-hint{font-size:13.5px;color:var(--muted)}
+.tp-status{font-size:14px;color:var(--muted);background:var(--soft);border-radius:10px;padding:10px 14px}
+.tp-status:empty{display:none}
+.tp-actions{display:flex;flex-wrap:wrap;gap:10px}
+.tp-btn{font:inherit;font-weight:700;font-size:15px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tp-btn.main{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tp-btn:focus-visible{outline:2px solid var(--t-blue);outline-offset:2px}
+.tpv{position:fixed;inset:0;z-index:100;background:#000;color:#fff;display:flex;flex-direction:column}
+.tpv-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding:calc(10px + env(safe-area-inset-top,0px)) max(14px,env(safe-area-inset-right,0px)) 10px max(14px,env(safe-area-inset-left,0px));background:#111;border-bottom:1px solid #222;font-family:var(--body)}
+.tpv-b{font:inherit;font-weight:700;font-size:15px;min-height:42px;padding:0 16px;border-radius:999px;border:1px solid #444;background:#1c1c1c;color:#fff;cursor:pointer}
+#tpv-play{background:#F2B21F;color:#111;border-color:#F2B21F}
+.tpv-l{display:flex;align-items:center;gap:8px;font-size:14px;color:#ccc}
+.tpv-l input[type=range]{width:120px;accent-color:#F2B21F}
+.tpv-scroll{flex:1;overflow-y:auto;position:relative;scrollbar-width:none}
+.tpv-guide{position:sticky;top:33%;height:0;border-top:3px solid rgba(242,178,31,.55);z-index:1;pointer-events:none}
+.tpv-text{max-width:1100px;margin:0 auto;padding:33vh max(24px,env(safe-area-inset-left,0px)) 70vh;font-family:"Fira Sans",system-ui,sans-serif;font-weight:500;line-height:1.35;white-space:pre-wrap;overflow-wrap:anywhere}
+.tpv-text h4{font-family:var(--display);color:#F2B21F;margin:0 0 .6em;font-size:.8em}
+.tpv.mirror .tpv-text{transform:scaleX(-1)}
 /* pdf */
 .pdfs{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
 .page{width:min(100%,340px);aspect-ratio:210/297;max-width:100%;background:#FFFFFF;color:#1F2A44;border-radius:6px;box-shadow:0 20px 40px -22px rgba(20,26,40,.5);padding:18px;display:flex;flex-direction:column;gap:10px;font-size:11px;line-height:1.4;overflow:hidden}
@@ -298,6 +340,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <a href="#bonus" data-t="bonus">Bônus em PDF</a>
 <a href="#criativos" data-t="criativos">Criativos</a>
 <a href="#cronograma" data-t="cronograma">Cronograma</a>
+<a href="#roteiros" data-t="roteiros">Roteiros TP</a>
 <a href="#referencias" data-t="referencias">Referências</a>
 <a href="#investimento" data-t="investimento">Investimento</a>
 </nav></div>
@@ -340,6 +383,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <a href="#bonus"><b>Bônus em PDF</b><span>O guia de exercícios para as famílias</span></a>
 <a href="#criativos"><b>Criativos</b><span>Ideias de Reels para o Instagram</span></a>
 <a href="#cronograma"><b>Cronograma</b><span>Como será o dia de gravação</span></a>
+<a href="#roteiros"><b>Roteiros TP</b><span>Texto das aulas para o teleprompter</span></a>
 <a href="#referencias"><b>Referências</b><span>Perfis do Instagram para se inspirar</span></a>
 <a href="#investimento"><b>Investimento</b><span>Em quantas vendas o curso se paga</span></a>
 </div>
@@ -571,6 +615,55 @@ Marca aquela colega fisio que precisa ver isso 👇
 </section>
 
 
+<section class="band" data-tab="roteiros">
+<div class="wrap">
+<p class="eyebrow">Roteiros para o teleprompter</p>
+<h2>Escreva aqui o texto de cada aula</h2>
+<p class="lead">Escolha a aula, escreva o roteiro e ele fica salvo automaticamente. No dia da gravação, toque em “Abrir no teleprompter” para ler em tela cheia, com rolagem automática.</p>
+<p class="tp-status" id="tp-mode" role="status"></p>
+<div class="tp">
+<nav class="tp-list" aria-label="Aulas" id="tp-list"></nav>
+<div class="tp-ed panel">
+<div class="tp-row">
+<label class="tp-f" style="flex:1 1 260px">Título da aula<input id="tp-title" type="text" placeholder="Ex.: O que é a marcha na ponta dos pés"></label>
+<label class="tp-f" style="flex:0 1 200px">Módulo<select id="tp-mod"><option value="teoria">Teoria (mesa)</option><option value="pratica">Prática (tatame)</option></select></label>
+</div>
+<label class="tp-f">Roteiro
+<textarea id="tp-text" rows="14" placeholder="Escreva como vai falar, em frases curtas. Pule uma linha para cada pausa ou troca de assunto.
+
+Ex.:
+Olá! Nesta aula vamos entender por que muitas crianças autistas andam na ponta dos pés.
+
+Antes de falar de exercícios, precisamos olhar para a criança como um todo."></textarea></label>
+<div class="tp-meta">
+<span><b id="tp-words">0</b> palavras</span>
+<span>≈ <b id="tp-min">0</b> min de fala</span>
+<span class="tp-bar" aria-hidden="true"><i id="tp-fill"></i></span>
+<span id="tp-save" class="tp-save">—</span>
+</div>
+<p class="tp-hint">Meta de 20 minutos ≈ 2.600 palavras (falando cerca de 130 palavras por minuto).</p>
+<div class="tp-actions">
+<button type="button" class="tp-btn main" id="tp-open">Abrir no teleprompter</button>
+<button type="button" class="tp-btn" id="tp-prev">← Aula anterior</button>
+<button type="button" class="tp-btn" id="tp-next">Próxima aula →</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="tpv" id="tpv" hidden>
+<div class="tpv-bar">
+<button type="button" id="tpv-play" class="tpv-b">▶ Iniciar</button>
+<label class="tpv-l">Velocidade<input type="range" id="tpv-speed" min="10" max="140" value="45"></label>
+<label class="tpv-l">Letra<input type="range" id="tpv-size" min="36" max="110" value="64"></label>
+<label class="tpv-l tpv-c"><input type="checkbox" id="tpv-mirror"> Espelhar</label>
+<button type="button" id="tpv-top" class="tpv-b">↺ Início</button>
+<button type="button" id="tpv-close" class="tpv-b">✕ Fechar</button>
+</div>
+<div class="tpv-scroll" id="tpv-scroll"><div class="tpv-guide" aria-hidden="true"></div><div class="tpv-text" id="tpv-text"></div></div>
+</div>
+
 <section class="band" data-tab="referencias">
 <div class="wrap">
 <p class="eyebrow">Referências no Instagram</p>
@@ -731,8 +824,8 @@ Marca aquela colega fisio que precisa ver isso 👇
 <nav class="mnav" aria-label="Navegar entre as abas"><a href="#" class="go-prev">← Anterior</a><span class="pos"></span><a href="#" class="go-next">Próxima →</a></nav>
 <script>
 (function(){
-  var order=["proposta","cenarios","vendas","bonus","criativos","cronograma","referencias","investimento"];
-  var names={cenarios:"Cenários",vendas:"Página de vendas",bonus:"Bônus em PDF",criativos:"Criativos",cronograma:"Cronograma",referencias:"Referências",investimento:"Investimento"};
+  var order=["proposta","cenarios","vendas","bonus","criativos","cronograma","roteiros","referencias","investimento"];
+  var names={cenarios:"Cenários",vendas:"Página de vendas",bonus:"Bônus em PDF",criativos:"Criativos",cronograma:"Cronograma",roteiros:"Roteiros TP",referencias:"Referências",investimento:"Investimento"};
   document.querySelectorAll("section[data-tab]").forEach(function(sec){
     var t=sec.getAttribute("data-tab"),i=order.indexOf(t),n=order[i+1];
     var last=document.querySelectorAll('section[data-tab="'+t+'"]');
@@ -757,6 +850,79 @@ Marca aquela colega fisio que precisa ver isso 👇
   }
   window.addEventListener("hashchange",function(){show();window.scrollTo(0,0);});
   show();
+})();
+</script>
+<script>
+(function(){
+  var N=10, cur=0, dbRef=null, data={}, timer=null, dirty=false;
+  var $=function(id){return document.getElementById(id);};
+  var list=$("tp-list"), ti=$("tp-title"), mo=$("tp-mod"), tx=$("tp-text"), sv=$("tp-save"), mode=$("tp-mode");
+  function id(i){return "aula-"+String(i+1).padStart(2,"0");}
+  function def(i){return {titulo:"",modulo:i<5?"teoria":"pratica",roteiro:""};}
+  function get(i){return data[id(i)]||def(i);}
+  function lsLoad(){try{var v=JSON.parse(localStorage.getItem("tp-roteiros")||"{}");if(v&&typeof v==="object")data=v;}catch(e){}}
+  function lsSave(){try{localStorage.setItem("tp-roteiros",JSON.stringify(data));}catch(e){}}
+  function words(t){var m=(t||"").trim().match(/\S+/g);return m?m.length:0;}
+  function renderList(){
+    list.textContent="";
+    for(var i=0;i<N;i++){(function(i){
+      var a=get(i),b=document.createElement("button");b.type="button";
+      b.className="tp-item "+a.modulo+(i===cur?" on":"")+(words(a.roteiro)?" has":"");
+      if(i===cur)b.setAttribute("aria-current","true");
+      var sm=document.createElement("small");var d=document.createElement("i");d.className="dot";sm.appendChild(d);sm.appendChild(document.createTextNode("Aula "+(i+1)+" · "+(a.modulo==="teoria"?"Teoria":"Prática")));
+      var sp=document.createElement("span");sp.textContent=a.titulo||"Sem título";
+      b.appendChild(sm);b.appendChild(sp);b.onclick=function(){go(i);};list.appendChild(b);
+    })(i);}
+  }
+  function stats(){var w=words(tx.value),m=w/130;$("tp-words").textContent=w.toLocaleString("pt-BR");$("tp-min").textContent=m<1&&w?"<1":Math.round(m);$("tp-fill").style.width=Math.min(100,m/20*100)+"%";}
+  function fill(){var a=get(cur);ti.value=a.titulo;mo.value=a.modulo;tx.value=a.roteiro;stats();
+    $("tp-prev").disabled=cur===0;$("tp-next").disabled=cur===N-1;}
+  function go(i){flush();cur=i;fill();renderList();}
+  function collect(){data[id(cur)]={titulo:ti.value,modulo:mo.value,roteiro:tx.value};}
+  function flush(){if(!dirty)return;clearTimeout(timer);dirty=false;write(cur);}
+  function write(i){var k=id(i),v=data[k];lsSave();
+    if(!dbRef){sv.textContent="Salvo neste aparelho";return;}
+    sv.textContent="Salvando…";
+    dbRef.doc(k).set({titulo:v.titulo,modulo:v.modulo,roteiro:v.roteiro,atualizado:Date.now()})
+      .then(function(){sv.textContent="Salvo ✓";})
+      .catch(function(e){sv.textContent=(e&&e.code==="permission_denied")?"Sem permissão para salvar":"Não foi possível salvar. Tente de novo.";});}
+  function onEdit(){collect();dirty=true;sv.textContent="Editando…";stats();clearTimeout(timer);var i=cur;timer=setTimeout(function(){dirty=false;write(i);renderList();},1200);}
+  ti.addEventListener("input",function(){onEdit();});mo.addEventListener("change",function(){onEdit();renderList();});tx.addEventListener("input",onEdit);
+  ti.addEventListener("blur",function(){flush();renderList();});tx.addEventListener("blur",flush);
+  $("tp-prev").onclick=function(){if(cur>0)go(cur-1);};$("tp-next").onclick=function(){if(cur<N-1)go(cur+1);};
+  window.addEventListener("beforeunload",flush);
+  lsLoad();fill();renderList();
+  mode.textContent="Conectando ao salvamento online…";
+  var to=setTimeout(function(){mode.textContent="O salvamento online não respondeu. O texto fica salvo só neste aparelho.";},10000);
+  (window.claude&&window.claude.use?window.claude.use("db"):Promise.resolve(null)).then(function(db){
+    if(!db){clearTimeout(to);mode.textContent="Nesta versão do site o texto fica salvo só neste aparelho. Para salvar online e compartilhar, use o link do Claude.";return;}
+    dbRef=db.collection("roteiros");
+    dbRef.onSnapshot(function(snap){clearTimeout(to);mode.textContent="";
+      snap.docs.forEach(function(d){var v=d.data();if(!v)return;if(d.id===id(cur)&&(dirty||document.activeElement===tx||document.activeElement===ti))return;
+        data[d.id]={titulo:String(v.titulo||""),modulo:v.modulo==="pratica"?"pratica":"teoria",roteiro:String(v.roteiro||"")};});
+      lsSave();if(!dirty&&document.activeElement!==tx&&document.activeElement!==ti)fill();renderList();
+    },function(){clearTimeout(to);mode.textContent="Não foi possível carregar os roteiros salvos. O que você escrever fica neste aparelho.";});
+  }).catch(function(){clearTimeout(to);mode.textContent="O texto fica salvo só neste aparelho.";});
+  /* teleprompter */
+  var tpv=$("tpv"),sc=$("tpv-scroll"),tt=$("tpv-text"),run=false,last=0,pos=0,raf=0;
+  function tick(t){if(!run)return;if(last){pos+=(t-last)/1000*Number($("tpv-speed").value);sc.scrollTop=pos;if(sc.scrollTop+sc.clientHeight>=sc.scrollHeight-2){stop();}}last=t;raf=requestAnimationFrame(tick);}
+  function start(){run=true;last=0;pos=sc.scrollTop;$("tpv-play").textContent="❚❚ Pausar";raf=requestAnimationFrame(tick);}
+  function stop(){run=false;cancelAnimationFrame(raf);$("tpv-play").textContent="▶ Continuar";}
+  function size(){tt.style.fontSize=$("tpv-size").value+"px";}
+  $("tp-open").onclick=function(){flush();var a=get(cur);tt.textContent="";var h=document.createElement("h4");h.textContent="Aula "+(cur+1)+(a.titulo?" · "+a.titulo:"");tt.appendChild(h);
+    tt.appendChild(document.createTextNode(a.roteiro||"(Esta aula ainda não tem roteiro.)"));
+    tpv.hidden=false;document.body.style.overflow="hidden";sc.scrollTop=0;pos=0;size();$("tpv-play").textContent="▶ Iniciar";
+    try{var r=tpv.requestFullscreen&&tpv.requestFullscreen();if(r&&r.catch)r.catch(function(){});}catch(e){}
+    try{navigator.wakeLock&&navigator.wakeLock.request("screen").catch(function(){});}catch(e){}
+    $("tpv-play").focus();};
+  $("tpv-play").onclick=function(){run?stop():start();};
+  $("tpv-top").onclick=function(){stop();sc.scrollTop=0;pos=0;$("tpv-play").textContent="▶ Iniciar";};
+  $("tpv-size").oninput=size;
+  $("tpv-mirror").onchange=function(){tpv.classList.toggle("mirror",this.checked);};
+  sc.addEventListener("wheel",function(){pos=sc.scrollTop;},{passive:true});sc.addEventListener("touchmove",function(){pos=sc.scrollTop;},{passive:true});
+  function close(){stop();tpv.hidden=true;document.body.style.overflow="";try{document.fullscreenElement&&document.exitFullscreen();}catch(e){}$("tp-open").focus();}
+  $("tpv-close").onclick=close;
+  tpv.addEventListener("keydown",function(e){if(e.key===" "){e.preventDefault();run?stop():start();}if(e.key==="Escape")close();});
 })();
 </script>
 <footer class="band">Proposta preparada por Aquila Edem · edemaquila.com.br</footer>
